@@ -243,7 +243,7 @@ void Traverse_Search_Track_Land(void)    //遍历航点 寻找形状 追踪形状 落地
         //3000-> 悬停3s 
 		
 		//发送给openMV 告知需要进行  落地点检测  消息中必须附带 正方形 或者 圆形    
-		//SDK_DT_Send_Check_Search_LandColor(0x23,0x05,0x01,UART3_SDK);  	//需要 正方形落地点 
+		SDK_DT_Send_Check_Search_LandColor(0x23,0x02,0x02,UART3_SDK);  	//需要 正方形落地点 
 	}
 	else if(flight_subtask_cnt[n]>=1&&flight_subtask_cnt[n]<=WAY_POINT_NUM)//起飞之后原定悬停1S后再执行航点任务：下降到1.4m
 	{
@@ -320,26 +320,26 @@ void Traverse_Search_Track_Land(void)    //遍历航点 寻找形状 追踪形状 落地
 		}			
 		
 		
-		if(abs(Opv_Top_View_Target.sdk_target.x)<=5)    //第一阶  判断
-		{
+//		if(abs(Opv_Top_View_Target.sdk_target.x)<=5)    //第一阶  判断
+//		{
 
-			//判断是否到达目标航点位置
-			if(flight_global_cnt[n]<50)//持续10*5ms=0.05s满足
-			{
-				float dis_cm=pythagorous3(Opv_Top_View_Target.sdk_target.x, Opv_Top_View_Target.sdk_target.y, 0);
-				if(dis_cm <= 5)	flight_global_cnt[n]++;
-				else flight_global_cnt[n]/=2;
-			}
-			else//持续10*5ms满足，表示到达目标航点位置
-			{
-				flight_subtask_cnt[n]=17;
-				flight_global_cnt[n]=0;	
-			}
+//			//判断是否到达目标航点位置
+//			if(flight_global_cnt[n]<50)//持续10*5ms=0.05s满足
+//			{
+//				float dis_cm=pythagorous3(Opv_Top_View_Target.sdk_target.x, Opv_Top_View_Target.sdk_target.y, 0);
+//				if(dis_cm <= 5)	flight_global_cnt[n]++;
+//				else flight_global_cnt[n]/=2;
+//			}
+//			else//持续10*5ms满足，表示到达目标航点位置
+//			{
+//				flight_subtask_cnt[n]=17;
+//				flight_global_cnt[n]=0;	
+//			}
 
 
-			
+//			
 
-		} //多次确认   +  手动控制油门？？？？？  定高？？？？
+//		} //多次确认   +  手动控制油门？？？？？  定高？？？？
 		Flight.yaw_ctrl_mode=ROTATE;
 		Flight.yaw_outer_control_output  =RC_Data.rc_rpyt[RC_YAW];
 		Flight_Alt_Hold_Control(ALTHOLD_MANUAL_CTRL,NUL,NUL);//高度控制    ？？？？？？？？？		
@@ -373,17 +373,60 @@ void Traverse_Search_Track_Land_Test(void)
 	static uint8_t n=26;
 	if(flight_subtask_cnt[n]==0)
 	{
-		SDK_DT_Send_Check_Search_LandColor(0x23,0x05,0x01,UART3_SDK);  	//需要 正方形落地点
+		SDK_DT_Send_Check_Search_LandColor(0x23,0x02,0x02,UART3_SDK);  	//需要
 		flight_subtask_cnt[n]=1;	
 	}
 	else if(flight_subtask_cnt[n]==1)
 	{
-		if(Opv_Top_View_Target.trust_flag==1)  //如果检测到正确的 正方形 或者原形的落地点
-		{			
-			buzzer_setup(100,0.5,1);//偏离 默认航线  进行 目标水平位置的 追踪  
-			flight_subtask_cnt[n]=1;
-			Opv_Top_View_Target.trust_flag=0;
+		static uint8_t miss_cnt=1;
+		static uint16_t _cnt=0;
+		static uint8_t miss_flag=0;
+		_cnt++;
+		if(_cnt>=20)//100ms
+		{	
+			_cnt=0;		
+		  if(Opv_Top_View_Target.target_ctrl_enable==1)//目标点检测跟踪
+			{			
+				miss_cnt=1;
+				miss_flag=0;			
+				Opv_Top_View_Target.target_ctrl_enable=0;
+				Total_Controller.SDK_Roll_Position_Control.Expect=0;
+				Total_Controller.SDK_Roll_Position_Control.FeedBack=Opv_Top_View_Target.sdk_target.x;
+				PID_Control_SDK_Err_LPF(&Total_Controller.SDK_Roll_Position_Control,Opv_Top_View_Target.trust_flag,0.1f);
+				
+				Total_Controller.SDK_Pitch_Position_Control.Expect=0;
+				Total_Controller.SDK_Pitch_Position_Control.FeedBack=Opv_Top_View_Target.sdk_target.y;
+				PID_Control_SDK_Err_LPF(&Total_Controller.SDK_Pitch_Position_Control,Opv_Top_View_Target.trust_flag,0.1f);
+				
+				OpticalFlow_Pos_Ctrl_Output.x=-Total_Controller.SDK_Roll_Position_Control.Control_OutPut;
+				OpticalFlow_Pos_Ctrl_Output.y=-Total_Controller.SDK_Pitch_Position_Control.Control_OutPut;	
+			}
+			else//丢失目标
+			{
+			  miss_flag=1;
+			}		
 		}
+
+		
+		if(miss_flag==1)//目标丢失
+		{
+			if(miss_cnt==1)//初始丢失跟踪目标后，锁定当前位置后，进行普通光流控制
+			{
+				miss_cnt=2;
+				OpticalFlow_Control_Pure(1);//20ms		
+			}
+			else if(miss_cnt==2)//丢失跟踪目标后，进行普通光流控制
+			{
+				OpticalFlow_Control_Pure(0);//20ms		
+			}
+		}
+	  else//目标未丢失,10ms
+		{
+			OpticalFlow_Vel_Control(OpticalFlow_Pos_Ctrl_Output);//速度控制周期20ms
+		}
+		Flight.yaw_ctrl_mode=ROTATE;
+		Flight.yaw_outer_control_output  =RC_Data.rc_rpyt[RC_YAW];			
+		Flight_Alt_Hold_Control(ALTHOLD_MANUAL_CTRL,NUL,NUL);//高度控制
 	}
 }
 /*********************************************************************************************************************************/
