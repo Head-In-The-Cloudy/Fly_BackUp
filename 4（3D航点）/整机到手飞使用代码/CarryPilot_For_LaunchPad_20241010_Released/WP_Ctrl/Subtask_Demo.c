@@ -248,7 +248,7 @@ vector3f waypoint_usr_3f[] =
 void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 {
 	// 只初始化一次
-	static uint8_t n = 25; // 任务号
+	static uint8_t n = 24; // 任务号
 
 	WAY_POINT_NUM_AUTO = get_Waypoint_Count(waypoint_usr_3f, sizeof(waypoint_usr_3f));
 
@@ -317,6 +317,20 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 
 				OpticalFlow_Pos_Ctrl_Output.x = -Total_Controller.SDK_Roll_Position_Control.Control_OutPut;
 				OpticalFlow_Pos_Ctrl_Output.y = -Total_Controller.SDK_Pitch_Position_Control.Control_OutPut;
+
+				if (pythagorous3(Opv_Top_View_Target.sdk_target.x, Opv_Top_View_Target.sdk_target.y, 0) <= 5) // 第一阶  判断
+				{
+					flight_global_cnt[n]++;
+					if(flight_global_cnt[n] > 25)
+					{
+						flight_subtask_cnt[n] = 17;
+						flight_global_cnt[n] = 0;
+					}
+				}
+				else
+				{
+					flight_global_cnt[n] /= 2;
+				}
 			}
 			else // 丢失目标
 			{
@@ -340,23 +354,6 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 		{
 			OpticalFlow_Vel_Control(OpticalFlow_Pos_Ctrl_Output); // 速度控制周期20ms
 		}
-
-		//		if(abs(Opv_Top_View_Target.sdk_target.x)<=5)    //第一阶  判断
-		//		{
-
-		//			//判断是否到达目标航点位置
-		//			if(flight_global_cnt[n]<50)//持续10*5ms=0.05s满足
-		//			{
-		//				float dis_cm=pythagorous3(Opv_Top_View_Target.sdk_target.x, Opv_Top_View_Target.sdk_target.y, 0);
-		//				if(dis_cm <= 5)	flight_global_cnt[n]++;
-		//				else flight_global_cnt[n]/=2;
-		//			}
-		//			else//持续10*5ms满足，表示到达目标航点位置
-		//			{
-		//				flight_subtask_cnt[n]=17;
-		//				flight_global_cnt[n]=0;
-		//			}
-
 		Flight.yaw_ctrl_mode = ROTATE;
 		Flight.yaw_outer_control_output = RC_Data.rc_rpyt[RC_YAW];
 		Flight_Alt_Hold_Control(ALTHOLD_MANUAL_CTRL, NUL, NUL);
