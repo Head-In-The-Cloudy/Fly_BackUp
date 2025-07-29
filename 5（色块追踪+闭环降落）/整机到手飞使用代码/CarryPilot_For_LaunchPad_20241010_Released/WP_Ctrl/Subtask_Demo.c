@@ -242,8 +242,8 @@ vector3f waypoint_usr_3f[] =
  * Mode：         0x23
  * Color：        0x00（待定） 0x01（黑色）    0x02（红色） 0x03（黄色）    0x04（蓝色） 0x05（棕色，纸板）
  * Shape：        0x00（待定） 0x01（正方形）  0x02（圆形） 0x03（三角形）  0x04（六边形）
- * 待定功能：      0x00（待定）
- * 校验位:         0x??
+ * 待定功能：     0x00（待定）
+ * 校验位:        0x??
  */
 void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 {
@@ -324,20 +324,28 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 					flight_global_cnt[n]++;
 					if (flight_global_cnt[n] > 10)
 					{
-						// flight_subtask_cnt[n] = 17;
-						flight_global_cnt[n] = 0;
 						flag_mine = 1;
+						SDK_DT_Send_Check_Search_LandColor(0x00, 0x02, 0x02, UART3_SDK);
+						flight_subtask_cnt[n] = 17;
+						flight_global_cnt[n] = 0;
 					}
 				}
 				else
 				{
 					flight_global_cnt[n] /= 2;
 				}
+//				if (flag_mine == 1)
+//				{
+//					Flight.yaw_ctrl_mode = ROTATE;
+//					Flight.yaw_outer_control_output = RC_Data.rc_rpyt[RC_YAW];
+//					OpticalFlow_Control_Pure(0);
+//					Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, NUL, -15); // 高度控制
+//				}
 			}
-			else // 丢失目标
-			{
-				miss_flag = 1;
-			}
+		}
+		else // 丢失目标
+		{
+			miss_flag = 1;
 		}
 
 		if (miss_flag == 1) // 目标丢失
@@ -358,15 +366,9 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 		}
 		Flight.yaw_ctrl_mode = ROTATE;
 		Flight.yaw_outer_control_output = RC_Data.rc_rpyt[RC_YAW];
-		if (flag_mine == 0)
-		{
-			Flight_Alt_Hold_Control(ALTHOLD_MANUAL_CTRL, NUL, NUL);
-		}
-		else
-		{
-			Flight_Alt_Hold_Control(ALTHOLD_MANUAL_CTRL, NUL, -30);
-		}
+		Flight_Alt_Hold_Control(ALTHOLD_MANUAL_CTRL, NUL, NUL);
 	}
+
 	else if (flight_subtask_cnt[n] == 16)
 	{
 		basic_auto_flight_support(); // 基本飞行支持软件
@@ -384,6 +386,18 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 
 		OpticalFlow_Control_Pure(0);
 		Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, NUL, -30); // 高度控制
+	}
+	else if (flight_subtask_cnt[n] == 18)
+	{
+		if (execute_time_ms[n] > 0)
+			execute_time_ms[n]--;
+		if (execute_time_ms[n] == 0) // 悬停时间计数器归零，悬停任务执行完毕
+		{
+			Flight.yaw_ctrl_mode = ROTATE;
+			Flight.yaw_outer_control_output = RC_Data.rc_rpyt[RC_YAW];
+			OpticalFlow_Control_Pure(0);
+			Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, NUL, -15); // 高度控制
+		}
 	}
 	else
 	{
