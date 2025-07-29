@@ -1,47 +1,47 @@
 /* Copyright (c)  2019-2030 Wuhan Nameless Innovation Technology Co.,Ltd. All rights reserved.*/
 /*----------------------------------------------------------------------------------------------------------------------/
-																									¿ªÔ´²¢²»µÈÓÚÃâ·Ñ
-																									¿ªÔ´²¢²»µÈÓÚÃâ·Ñ
-																									¿ªÔ´²¢²»µÈÓÚÃâ·Ñ
-																									ÖØÒªµÄÊÂÇéËµÈı±é
-								ÏÈÇıÕßµÄÀúÊ·ÒÑ¾­Ö¤Ã÷£¬ÔÚµ±Ç°¹úÄÚÂÔ¸¡Ôê+ÌÉÆ½+ÄÚ¾íµÄ´ó»·¾³ÏÂ£¬¶ÔÓÚºÁÎŞÊÕÒæµÄ¿ªÔ´ÏîÄ¿£¬µ¥¿¿·»¼ä·É¿Ø°®ºÃÕß¡¢
-								¸öÈËÇé»³Ê½¡¢×Ô·¢µØÖ÷¶¯Êä³öÈ¥²ÎÓë¿ªÔ´ÏîÄ¿µÄ·½Ê½ĞĞ²»Í¨£¬ºÃµÄ¿ªÔ´ÏîÄ¿ĞèÒªÇë×¨Ö°ÈËÔ±×öºÃÊÛºó¼¼Êõ·şÎñ¡¢ÅäÌ×
-								ÊÖ²áºÍÊÓÆµ½Ì³ÌÒª¸²¸ÇĞÂÊÖÈëÃÅµ½½ø½×½×¶Î£¬Ê¹ÓÃ¹ı³ÌÖĞ¶ÔÓÃ»§·´À¡ÎÊÌâºÍĞèÇó½øĞĞÍ³¼Æ¡¢ÔÚÊµ¼ùÖĞÍê³É¶Ô²úÆ·µÄÒ»
-								´Î´ÎÍêÉÆÓëµü´úÉı¼¶¡£
+																									å¼€æºå¹¶ä¸ç­‰äºå…è´¹
+																									å¼€æºå¹¶ä¸ç­‰äºå…è´¹
+																									å¼€æºå¹¶ä¸ç­‰äºå…è´¹
+																									é‡è¦çš„äº‹æƒ…è¯´ä¸‰é
+								å…ˆé©±è€…çš„å†å²å·²ç»è¯æ˜ï¼Œåœ¨å½“å‰å›½å†…ç•¥æµ®èº+èººå¹³+å†…å·çš„å¤§ç¯å¢ƒä¸‹ï¼Œå¯¹äºæ¯«æ— æ”¶ç›Šçš„å¼€æºé¡¹ç›®ï¼Œå•é åŠé—´é£æ§çˆ±å¥½è€…ã€
+								ä¸ªäººæƒ…æ€€å¼ã€è‡ªå‘åœ°ä¸»åŠ¨è¾“å‡ºå»å‚ä¸å¼€æºé¡¹ç›®çš„æ–¹å¼è¡Œä¸é€šï¼Œå¥½çš„å¼€æºé¡¹ç›®éœ€è¦è¯·ä¸“èŒäººå‘˜åšå¥½å”®åæŠ€æœ¯æœåŠ¡ã€é…å¥—
+								æ‰‹å†Œå’Œè§†é¢‘æ•™ç¨‹è¦è¦†ç›–æ–°æ‰‹å…¥é—¨åˆ°è¿›é˜¶é˜¶æ®µï¼Œä½¿ç”¨è¿‡ç¨‹ä¸­å¯¹ç”¨æˆ·åé¦ˆé—®é¢˜å’Œéœ€æ±‚è¿›è¡Œç»Ÿè®¡ã€åœ¨å®è·µä¸­å®Œæˆå¯¹äº§å“çš„ä¸€
+								æ¬¡æ¬¡å®Œå–„ä¸è¿­ä»£å‡çº§ã€‚
 -----------------------------------------------------------------------------------------------------------------------
-*                                                 ÎªÊ²Ã´Ñ¡ÔñÎŞÃû´´ĞÂ£¿
-*                                         ¸Ğ¶¯ÈËĞÄ¼Û¸ñºñµÀ£¬×î¿¿Æ×µÄ¿ªÔ´·É¿Ø£»
-*                                         ¹úÄÚÒµ½çÁ¼ĞÄÖ®×÷£¬×î¾«ÖÂµÄÊÛºó·şÎñ£»
-*                                         ×·Çó¼«ÖÂÓÃ»§ÌåÑé£¬¸ßĞ§½ø½×Ñ§Ï°Ö®Â·£»
-*                                         ÃÈĞÂ²»ÔÙ¹Âµ¥ÇóË÷£¬ºÏÀí°ÑÎÕ¿ªÔ´³ß¶È£»
-*                                         ÏìÓ¦¹ú¼Ò·öÆ¶ºÅÕÙ£¬´Ù½ø½ÌÓıÌåÖÆ¹«Æ½£»
-*                                         ĞÂÊ±´ú·Ü¶·×î³ö²Ê£¬½¨ÈËÀàÃüÔË¹²Í¬Ìå¡£ 
+*                                                 ä¸ºä»€ä¹ˆé€‰æ‹©æ— ååˆ›æ–°ï¼Ÿ
+*                                         æ„ŸåŠ¨äººå¿ƒä»·æ ¼åšé“ï¼Œæœ€é è°±çš„å¼€æºé£æ§ï¼›
+*                                         å›½å†…ä¸šç•Œè‰¯å¿ƒä¹‹ä½œï¼Œæœ€ç²¾è‡´çš„å”®åæœåŠ¡ï¼›
+*                                         è¿½æ±‚æè‡´ç”¨æˆ·ä½“éªŒï¼Œé«˜æ•ˆè¿›é˜¶å­¦ä¹ ä¹‹è·¯ï¼›
+*                                         èŒæ–°ä¸å†å­¤å•æ±‚ç´¢ï¼Œåˆç†æŠŠæ¡å¼€æºå°ºåº¦ï¼›
+*                                         å“åº”å›½å®¶æ‰¶è´«å·å¬ï¼Œä¿ƒè¿›æ•™è‚²ä½“åˆ¶å…¬å¹³ï¼›
+*                                         æ–°æ—¶ä»£å¥‹æ–—æœ€å‡ºå½©ï¼Œå»ºäººç±»å‘½è¿å…±åŒä½“ã€‚ 
 -----------------------------------------------------------------------------------------------------------------------
-*               ÉúÃü²»Ï¢¡¢·Ü¶·²»Ö¹£»Ç°ÈËÔÔÊ÷£¬ºóÈË³ËÁ¹£¡£¡£¡
-*               ¿ªÔ´²»Ò×£¬ÇÒÑ§ÇÒÕäÏ§£¬×£ÔçÈÕÄæÏ®¡¢½ø½×³É¹¦£¡£¡£¡
-*               Ñ§Ï°ÓÅĞãÕß£¬¼òÀú¿ÉÍÆ¼öµ½DJI¡¢ZEROTECH¡¢XAG¡¢AEE¡¢GDU¡¢AUTEL¡¢EWATT¡¢HIGH GREATµÈ¹«Ë¾¾ÍÒµ
-*               ÇóÖ°¼òÀúÇë·¢ËÍ£º15671678205@163.com£¬Ğè±¸×¢ÇóÖ°ÒâÏòµ¥Î»¡¢¸ÚÎ»¡¢´ıÓöµÈ
-*               ÎŞÃû´´ĞÂ¿ªÔ´·É¿ØQQÈº£º2ºÅÈº465082224¡¢1ºÅÈº540707961¡¢TI MSPM0Ñ§Ï°ÖĞĞÄ828746221
-*               CSDN²©¿Í£ºhttp://blog.csdn.net/u011992534
-*               BÕ¾½ÌÑ§ÊÓÆµ£ºhttps://space.bilibili.com/67803559/#/video				ÓÅ¿áID£ºNamelessCotrunÎŞÃûĞ¡¸ç
-*               ÎŞÃû´´ĞÂ¹úÄÚÊ×¿îTI¿ªÔ´·É¿ØÉè¼Æ³õÖÔ¡¢Öªºõ×¨À¸:https://zhuanlan.zhihu.com/p/54471146
-*               TI½ÌÓıÎŞÈË»úÆ·ÖÊ¹©Ó¦ÉÌ£¬¿ªÔ´-½ÌÑ§-ÅàÑø-¾ºÈü,ÅÌ¹Å TI MCUÏµÍ³°å NController¶à¹¦ÄÜ¿ØÖÆÆ÷https://item.taobao.com/item.htm?abbucket=19&id=697442280363 
-*               ÌÔ±¦µêÆÌ£ºhttps://namelesstech.taobao.com/
-*               ¹«Ë¾¹ÙÍø:www.nameless.tech
-*               ĞŞ¸ÄÈÕÆÚ:2024/10/01                  
-*               °æ±¾£ºÌÉÓ®ÕßPRO_V3¡ª¡ªCarryPilot_V7.0.1
-*               °æÈ¨ËùÓĞ£¬µÁ°æ±Ø¾¿¡£
-*               Copyright(C) 2019-2030 ÎäººÎŞÃû´´ĞÂ¿Æ¼¼ÓĞÏŞ¹«Ë¾ 
+*               ç”Ÿå‘½ä¸æ¯ã€å¥‹æ–—ä¸æ­¢ï¼›å‰äººæ ½æ ‘ï¼Œåäººä¹˜å‡‰ï¼ï¼ï¼
+*               å¼€æºä¸æ˜“ï¼Œä¸”å­¦ä¸”çæƒœï¼Œç¥æ—©æ—¥é€†è¢­ã€è¿›é˜¶æˆåŠŸï¼ï¼ï¼
+*               å­¦ä¹ ä¼˜ç§€è€…ï¼Œç®€å†å¯æ¨èåˆ°DJIã€ZEROTECHã€XAGã€AEEã€GDUã€AUTELã€EWATTã€HIGH GREATç­‰å…¬å¸å°±ä¸š
+*               æ±‚èŒç®€å†è¯·å‘é€ï¼š15671678205@163.comï¼Œéœ€å¤‡æ³¨æ±‚èŒæ„å‘å•ä½ã€å²—ä½ã€å¾…é‡ç­‰
+*               æ— ååˆ›æ–°å¼€æºé£æ§QQç¾¤ï¼š2å·ç¾¤465082224ã€1å·ç¾¤540707961ã€TI MSPM0å­¦ä¹ ä¸­å¿ƒ828746221
+*               CSDNåšå®¢ï¼šhttp://blog.csdn.net/u011992534
+*               Bç«™æ•™å­¦è§†é¢‘ï¼šhttps://space.bilibili.com/67803559/#/video				ä¼˜é…·IDï¼šNamelessCotrunæ— åå°å“¥
+*               æ— ååˆ›æ–°å›½å†…é¦–æ¬¾TIå¼€æºé£æ§è®¾è®¡åˆè¡·ã€çŸ¥ä¹ä¸“æ :https://zhuanlan.zhihu.com/p/54471146
+*               TIæ•™è‚²æ— äººæœºå“è´¨ä¾›åº”å•†ï¼Œå¼€æº-æ•™å­¦-åŸ¹å…»-ç«èµ›,ç›˜å¤ TI MCUç³»ç»Ÿæ¿ NControllerå¤šåŠŸèƒ½æ§åˆ¶å™¨https://item.taobao.com/item.htm?abbucket=19&id=697442280363 
+*               æ·˜å®åº—é“ºï¼šhttps://namelesstech.taobao.com/
+*               å…¬å¸å®˜ç½‘:www.nameless.tech
+*               ä¿®æ”¹æ—¥æœŸ:2024/10/01                  
+*               ç‰ˆæœ¬ï¼šèººèµ¢è€…PRO_V3â€”â€”CarryPilot_V7.0.1
+*               ç‰ˆæƒæ‰€æœ‰ï¼Œç›—ç‰ˆå¿…ç©¶ã€‚
+*               Copyright(C) 2019-2030 æ­¦æ±‰æ— ååˆ›æ–°ç§‘æŠ€æœ‰é™å…¬å¸ 
 *               All rights reserved
 -----------------------------------------------------------------------------------------------------------------------
-*               ÖØÒªÌáÊ¾£º
-*               Õı³£ÌÔ±¦ÏÌÓã×ªÊÖµÄ·É¿Ø¡¢ÔùËÍÅóÓÑ¡¢´«¸øÑ§µÜµÄ¶¼¿ÉÒÔ½øÊÛºóÈºÑ§Ï°½»Á÷£¬
-*               ²»µÃÔÚÍøÉÏÏúÊÛÎŞÃû´´ĞÂ×ÊÁÏ£¬¹«Ë¾¿ª·Å´úÂëÓĞÈí¼şÖø×÷È¨±£»¤°æÈ¨£¬ËûÈË²»µÃ½«
-*               ×ÊÁÏ´úÂë´«ÍøÉÏ¹©ËûÈËÏÂÔØ£¬²»µÃÒÔÄ±ÀûÎªÄ¿È¥ÏúÊÛ×ÊÁÏ´úÂë£¬·¢ÏÖÓĞ´ËÀà²Ù×÷Õß£¬
-*               ¹«Ë¾»áÌáÇ°¸æÖª£¬Çë1ÌìÄÚ¼°Ê±´¦Àí£¬·ñÔòÄãµÄÇÖÈ¨Î¥¹æĞĞÎª»á±»Ìù³öÔÚ¶¶Òô¡¢
-*               ½ñÈÕÍ·Ìõ¡¢°Ù¼ÒºÅ¡¢¹«Ë¾¹ÙÍø¡¢Î¢ĞÅ¹«ÖÚÆ½Ì¨¡¢¼¼Êõ²©¿Í¡¢ÖªºõµÈÆ½Ì¨ÓèÒÔ¹«Ê¾ÆØ¹â
-*               ´ËÖÖÇÖÈ¨ËùÎª»á³ÉÎª¸öÈËÖÕÉíÎÛµã£¬Ó°ÏìÉıÑ§¡¢ÕÒ¹¤×÷¡¢Éç»áÉùÓş¡¢ºÜ¿ì¾ÍºÜÔÚÎŞÈË»ú½ç³öÃû£¬ºó¹ûºÜÑÏÖØ¡£
-*               Òò´ËĞĞÎª¸ø¹«Ë¾Ôì³ÉÖØ´óËğÊ§Õß£¬»áÒÔ·¨ÂÉÍ¾¾¶½â¾ö£¬¸ĞĞ»ÄúµÄºÏ×÷£¬Ğ»Ğ»£¡£¡£¡
+*               é‡è¦æç¤ºï¼š
+*               æ­£å¸¸æ·˜å®å’¸é±¼è½¬æ‰‹çš„é£æ§ã€èµ é€æœ‹å‹ã€ä¼ ç»™å­¦å¼Ÿçš„éƒ½å¯ä»¥è¿›å”®åç¾¤å­¦ä¹ äº¤æµï¼Œ
+*               ä¸å¾—åœ¨ç½‘ä¸Šé”€å”®æ— ååˆ›æ–°èµ„æ–™ï¼Œå…¬å¸å¼€æ”¾ä»£ç æœ‰è½¯ä»¶è‘—ä½œæƒä¿æŠ¤ç‰ˆæƒï¼Œä»–äººä¸å¾—å°†
+*               èµ„æ–™ä»£ç ä¼ ç½‘ä¸Šä¾›ä»–äººä¸‹è½½ï¼Œä¸å¾—ä»¥è°‹åˆ©ä¸ºç›®å»é”€å”®èµ„æ–™ä»£ç ï¼Œå‘ç°æœ‰æ­¤ç±»æ“ä½œè€…ï¼Œ
+*               å…¬å¸ä¼šæå‰å‘ŠçŸ¥ï¼Œè¯·1å¤©å†…åŠæ—¶å¤„ç†ï¼Œå¦åˆ™ä½ çš„ä¾µæƒè¿è§„è¡Œä¸ºä¼šè¢«è´´å‡ºåœ¨æŠ–éŸ³ã€
+*               ä»Šæ—¥å¤´æ¡ã€ç™¾å®¶å·ã€å…¬å¸å®˜ç½‘ã€å¾®ä¿¡å…¬ä¼—å¹³å°ã€æŠ€æœ¯åšå®¢ã€çŸ¥ä¹ç­‰å¹³å°äºˆä»¥å…¬ç¤ºæ›å…‰
+*               æ­¤ç§ä¾µæƒæ‰€ä¸ºä¼šæˆä¸ºä¸ªäººç»ˆèº«æ±¡ç‚¹ï¼Œå½±å“å‡å­¦ã€æ‰¾å·¥ä½œã€ç¤¾ä¼šå£°èª‰ã€å¾ˆå¿«å°±å¾ˆåœ¨æ— äººæœºç•Œå‡ºåï¼Œåæœå¾ˆä¸¥é‡ã€‚
+*               å› æ­¤è¡Œä¸ºç»™å…¬å¸é€ æˆé‡å¤§æŸå¤±è€…ï¼Œä¼šä»¥æ³•å¾‹é€”å¾„è§£å†³ï¼Œæ„Ÿè°¢æ‚¨çš„åˆä½œï¼Œè°¢è°¢ï¼ï¼ï¼
 ----------------------------------------------------------------------------------------------------------------------*/
 #include "Headfile.h"
 #include "RC.h"
@@ -52,7 +52,7 @@ float Target_Angle[2]={0};
 uint16 Last_Throttle_Control,Pre_Last_Throttle_Control;
 uint16 Throttle_Base=1000,TempThrottle_Control;
 uint16_t Controler_State=0;
-uint16_t Auto_ReLock_Cnt=0;//×Ô¶¯ÉÏËø¼ÆÊıÆ÷
+uint16_t Auto_ReLock_Cnt=0;//è‡ªåŠ¨ä¸Šé”è®¡æ•°å™¨
 uint8_t Auto_Relock_Flag=0;
 uint8_t Auto_Relock_Flag_Set=0;
 int16 Temp_RC=0;
@@ -76,17 +76,17 @@ int16_t constrain_int16_t(int16_t amt, int16_t low, int16_t high){
 
 
 /***********************************************************
-@º¯ÊıÃû£ºRC_Data_LPF_Filter
-@Èë¿Ú²ÎÊı£ºÎŞ
-@³ö¿Ú²ÎÊı£ºÎŞ
-¹¦ÄÜÃèÊö£ºÒ£¿ØÆ÷Ô­Ê¼Êı¾İÂË²¨
-@×÷Õß£ºÎŞÃûĞ¡¸ç
-@ÈÕÆÚ£º2024/10/01
+@å‡½æ•°åï¼šRC_Data_LPF_Filter
+@å…¥å£å‚æ•°ï¼šæ— 
+@å‡ºå£å‚æ•°ï¼šæ— 
+åŠŸèƒ½æè¿°ï¼šé¥æ§å™¨åŸå§‹æ•°æ®æ»¤æ³¢
+@ä½œè€…ï¼šæ— åå°å“¥
+@æ—¥æœŸï¼š2024/10/01
 *************************************************************/
 void RC_Data_LPF_Filter()
 {
   uint16_t i=0;
-  for(i=0;i<8;i++)//¶ÔÒ£¿ØÆ÷Ç°ËÄ¸öÍ¨µÀÂË²¨´¦Àí
+  for(i=0;i<8;i++)//å¯¹é¥æ§å™¨å‰å››ä¸ªé€šé“æ»¤æ³¢å¤„ç†
   {
     PPM_LPF_Databuf[i]=(uint16_t)(LPButterworth(PPM_Databuf[i],&RC_LPF_Buffer[i],&Butter_5HZ_Parameter_RC));
   }
@@ -95,14 +95,14 @@ void RC_Data_LPF_Filter()
 
 int16_t Throttle_Rate=0;
 /***********************************************************
-@º¯ÊıÃû£ºGet_Thr_Rate
-@Èë¿Ú²ÎÊı£ºfloat Thr
-@³ö¿Ú²ÎÊı£ºÎŞ
-¹¦ÄÜÃèÊö£ºÓÍÃÅÊı¾İ±ä»¯ÂÊ
-@×÷Õß£ºÎŞÃûĞ¡¸ç
-@ÈÕÆÚ£º2024/10/01
+@å‡½æ•°åï¼šGet_Thr_Rate
+@å…¥å£å‚æ•°ï¼šfloat Thr
+@å‡ºå£å‚æ•°ï¼šæ— 
+åŠŸèƒ½æè¿°ï¼šæ²¹é—¨æ•°æ®å˜åŒ–ç‡
+@ä½œè€…ï¼šæ— åå°å“¥
+@æ—¥æœŸï¼š2024/10/01
 *************************************************************/
-int16_t Get_Thr_Rate(float Thr)//ÓÍÃÅ±ä»¯Á¿
+int16_t Get_Thr_Rate(float Thr)//æ²¹é—¨å˜åŒ–é‡
 {
   static float Thr_Rec[20];
   uint16_t i=0;
@@ -115,12 +115,12 @@ int16_t Get_Thr_Rate(float Thr)//ÓÍÃÅ±ä»¯Á¿
 }
 
 /***********************************************************
-@º¯ÊıÃû£ºRC_Scale_Set
-@Èë¿Ú²ÎÊı£ºVector_RC *rc_date
-@³ö¿Ú²ÎÊı£ºÎŞ
-¹¦ÄÜÃèÊö£ºÒ£¿ØÆ÷Í¨µÀĞĞ³Ì»ñÈ¡
-@×÷Õß£ºÎŞÃûĞ¡¸ç
-@ÈÕÆÚ£º2024/10/01
+@å‡½æ•°åï¼šRC_Scale_Set
+@å…¥å£å‚æ•°ï¼šVector_RC *rc_date
+@å‡ºå£å‚æ•°ï¼šæ— 
+åŠŸèƒ½æè¿°ï¼šé¥æ§å™¨é€šé“è¡Œç¨‹è·å–
+@ä½œè€…ï¼šæ— åå°å“¥
+@æ—¥æœŸï¼š2024/10/01
 *************************************************************/
 void RC_Scale_Set(rc_calibration *rc_date)
 {
@@ -138,9 +138,9 @@ uint8_t RC_Read_Switch(uint16_t ch)
 {
 		uint16_t pulsewidth = ch;
 		if (pulsewidth <= 900 || pulsewidth >= 2200) return 255;// This is an error condition
-		if (pulsewidth <= 1210) return 0;//µÍÎ»
-		if (pulsewidth <= 1710) return 1;//ÖĞÎ»
-		return 2;//¸ßÎ»
+		if (pulsewidth <= 1210) return 0;//ä½ä½
+		if (pulsewidth <= 1710) return 1;//ä¸­ä½
+		return 2;//é«˜ä½
 }
 
 
@@ -162,12 +162,12 @@ float Remote_Data_Remap(rc *data,uint16_t ch,float max_down,float max_up,bool re
 
 
 /***********************************************************
-@º¯ÊıÃû£ºRemote_Control
-@Èë¿Ú²ÎÊı£ºÎŞ
-@³ö¿Ú²ÎÊı£ºÎŞ
-¹¦ÄÜÃèÊö£ºÒ£¿ØÆ÷Êı¾İ×ª»»
-@×÷Õß£ºÎŞÃûĞ¡¸ç
-@ÈÕÆÚ£º2024/10/01
+@å‡½æ•°åï¼šRemote_Control
+@å…¥å£å‚æ•°ï¼šæ— 
+@å‡ºå£å‚æ•°ï¼šæ— 
+åŠŸèƒ½æè¿°ï¼šé¥æ§å™¨æ•°æ®è½¬æ¢
+@ä½œè€…ï¼šæ— åå°å“¥
+@æ—¥æœŸï¼š2024/10/01
 *************************************************************/
 void Remote_Control(void )
 {
@@ -179,7 +179,7 @@ void Remote_Control(void )
 	{
 		memcpy(PPM_Databuf,ADC_PPM_Databuf,10*sizeof(uint16));
 	}
-	else if(ppm_update_flag==1)//ÓÅÏÈÑ¡ÔñÍâ²¿½ÓÊÕ»úÊäÈëµÄPPMĞÅºÅ
+	else if(ppm_update_flag==1)//ä¼˜å…ˆé€‰æ‹©å¤–éƒ¨æ¥æ”¶æœºè¾“å…¥çš„PPMä¿¡å·
 	{
 	  memcpy(PPM_Databuf,Receiver_PPM_Databuf,10*sizeof(uint16));
 	}
@@ -191,7 +191,7 @@ void Remote_Control(void )
 	
 	if(ppm_update_flag==1||rc_update_flag==1||adc_ppm_update_flag==1)
 	{
-			memcpy(RC_Data.rcdata,PPM_Databuf,RC_CHL_MAX*sizeof(uint16_t));//¸üĞÂÃ¿¸öÍ¨µÀÒ£¿ØÆ÷Êı¾İ
+			memcpy(RC_Data.rcdata,PPM_Databuf,RC_CHL_MAX*sizeof(uint16_t));//æ›´æ–°æ¯ä¸ªé€šé“é¥æ§å™¨æ•°æ®
 		
 			RC_Data.rc_rpyt[RC_ROLL]	=Remote_Data_Remap(&RC_Data ,RC_ROLL_CHANNEL	,Pit_Rol_Max,Pit_Rol_Max,true);
 			RC_Data.rc_rpyt[RC_PITCH] =Remote_Data_Remap(&RC_Data ,RC_PITCH_CHANNEL ,Pit_Rol_Max,Pit_Rol_Max,true);
@@ -208,9 +208,9 @@ void Remote_Control(void )
 			RC_Data.last_thr_mode=RC_Data.thr_mode;			
 			switch(RC_Read_Switch(RC_Data.aux[AUX1]))
 			{
-				case 0:RC_Data.thr_mode=HAND_THR;break;//ÊÖ¶¯¿ØÖÆÓÍÃÅ
+				case 0:RC_Data.thr_mode=HAND_THR;break;//æ‰‹åŠ¨æ§åˆ¶æ²¹é—¨
 				case 1:
-				case 2:RC_Data.thr_mode=AUTO_THR;break;//×Ô¶¯¿ØÖÆÓÍÃÅ
+				case 2:RC_Data.thr_mode=AUTO_THR;break;//è‡ªåŠ¨æ§åˆ¶æ²¹é—¨
 				default:RC_Data.thr_mode=HAND_THR;
 			}
 			
@@ -220,29 +220,29 @@ void Remote_Control(void )
 			ppm_update_flag=0;
 			RC_Data_LPF_Filter();
 			RC_Scale_Set(&RC_Data.cal[0]);
-			if(PPM_Databuf[0]<=RC_Deadzone_Buttom)  Roll_Control=(RC_Deadzone_Buttom-PPM_LPF_Databuf[0])*Pit_Rol_Max/(RC_Deadzone_Buttom-RC_Buttom);//×î´óĞĞ³Ì¿ØÖÆÁ¿+-45
+			if(PPM_Databuf[0]<=RC_Deadzone_Buttom)  Roll_Control=(RC_Deadzone_Buttom-PPM_LPF_Databuf[0])*Pit_Rol_Max/(RC_Deadzone_Buttom-RC_Buttom);//æœ€å¤§è¡Œç¨‹æ§åˆ¶é‡+-45
 			else if(PPM_Databuf[0]>=RC_Deadzone_Top)  Roll_Control=(RC_Deadzone_Top-PPM_LPF_Databuf[0])*Pit_Rol_Max/(RC_Top-RC_Deadzone_Top);
 			else Roll_Control=0;
 			Roll_Control=constrain_float(Roll_Control,-Pit_Rol_Max,Pit_Rol_Max);
 			
 			RC_Scale_Set(&RC_Data.cal[1]);
-			if(PPM_Databuf[1]<=RC_Deadzone_Buttom)  Pitch_Control=(RC_Deadzone_Buttom-PPM_LPF_Databuf[1])*Pit_Rol_Max/(RC_Deadzone_Buttom-RC_Buttom);//×î´óĞĞ³Ì¿ØÖÆÁ¿+-45
+			if(PPM_Databuf[1]<=RC_Deadzone_Buttom)  Pitch_Control=(RC_Deadzone_Buttom-PPM_LPF_Databuf[1])*Pit_Rol_Max/(RC_Deadzone_Buttom-RC_Buttom);//æœ€å¤§è¡Œç¨‹æ§åˆ¶é‡+-45
 			else if(PPM_Databuf[1]>=RC_Deadzone_Top)  Pitch_Control=(RC_Deadzone_Top-PPM_LPF_Databuf[1])*Pit_Rol_Max/(RC_Top-RC_Deadzone_Top);
 			else Pitch_Control=0;
 			Pitch_Control=constrain_float(Pitch_Control,-Pit_Rol_Max,Pit_Rol_Max);
 			
-			Target_Angle[0]=-Pitch_Control;//×ÔÎÈÊ±£¬ÆÚÍû¸©Ñö½Ç
-			Target_Angle[1]=-Roll_Control;//×ÔÎÈÊ±£¬ÆÚÍûºá¹ö½Ç
+			Target_Angle[0]=-Pitch_Control;//è‡ªç¨³æ—¶ï¼ŒæœŸæœ›ä¿¯ä»°è§’
+			Target_Angle[1]=-Roll_Control;//è‡ªç¨³æ—¶ï¼ŒæœŸæœ›æ¨ªæ»šè§’
 			
 			RC_Scale_Set(&RC_Data.cal[2]);
 			int16_t _thr=0;
-			_thr=1000*(PPM_LPF_Databuf[2]-RC_Buttom)/(RC_Top-RC_Buttom);//ÎªÁË°²È«£¬ÓÍÃÅ¸ËµÍÎ»ËÀÇøÎªButtom_Safe_Deadband
+			_thr=1000*(PPM_LPF_Databuf[2]-RC_Buttom)/(RC_Top-RC_Buttom);//ä¸ºäº†å®‰å…¨ï¼Œæ²¹é—¨æ†ä½ä½æ­»åŒºä¸ºButtom_Safe_Deadband
 			Throttle_Control=constrain_int16_t(_thr,0,1000);
-			TRPY[0]=Throttle_Control;//Ò£¸ĞÓÍÃÅÔ­Ê¼ĞĞ³ÌÁ¿
+			TRPY[0]=Throttle_Control;//é¥æ„Ÿæ²¹é—¨åŸå§‹è¡Œç¨‹é‡
 			
 			
 			RC_Scale_Set(&RC_Data.cal[3]);
-			if(PPM_Databuf[3]<=RC_Deadzone_Buttom)  Yaw_Control=-(PPM_LPF_Databuf[3]-RC_Deadzone_Buttom)*Yaw_Max/(RC_Deadzone_Buttom-RC_Buttom);//Æ«º½×î´óĞĞ³Ì¿ØÖÆÁ¿+-150
+			if(PPM_Databuf[3]<=RC_Deadzone_Buttom)  Yaw_Control=-(PPM_LPF_Databuf[3]-RC_Deadzone_Buttom)*Yaw_Max/(RC_Deadzone_Buttom-RC_Buttom);//åèˆªæœ€å¤§è¡Œç¨‹æ§åˆ¶é‡+-150
 			else if(PPM_Databuf[3]>=RC_Deadzone_Top)  Yaw_Control=-(PPM_LPF_Databuf[3]-RC_Deadzone_Top)*Yaw_Max/(RC_Top-RC_Deadzone_Top);
 			else Yaw_Control=0;
 			Yaw_Control=constrain_float(Yaw_Control,-Yaw_Max,Yaw_Max);
@@ -251,8 +251,8 @@ void Remote_Control(void )
 			Throttle_Rate=Get_Thr_Rate(Throttle_Control);
 			Throttle_Control=Throttle_Base+Throttle_Control;
 			/***************************************************************
-			×óÊÖÓÍÃÅÊ±£¬Ò£¿ØÆ÷½âËø¶¯×÷£º×ó±ßÒ¡¸Ë´¦ÓÚµÍÎ»²¢ÏòÄÚ²à´ò¸Ë
-			×óÊÖÓÍÃÅÊ±£¬Ò£¿ØÆ÷ÉÏËø¶¯×÷£º×ó±ßÒ¡¸Ë´¦ÓÚµÍÎ»²¢ÏòÍâ²à´ò¸Ë
+			å·¦æ‰‹æ²¹é—¨æ—¶ï¼Œé¥æ§å™¨è§£é”åŠ¨ä½œï¼šå·¦è¾¹æ‘‡æ†å¤„äºä½ä½å¹¶å‘å†…ä¾§æ‰“æ†
+			å·¦æ‰‹æ²¹é—¨æ—¶ï¼Œé¥æ§å™¨ä¸Šé”åŠ¨ä½œï¼šå·¦è¾¹æ‘‡æ†å¤„äºä½ä½å¹¶å‘å¤–ä¾§æ‰“æ†
 			***************************************************************/
 			if(Throttle_Control<=(1000+Buttom_Safe_Deadband)
 			 &&Yaw_Control>=Yaw_Max*Scale_Pecent_Max
@@ -268,9 +268,9 @@ void Remote_Control(void )
 			if((Throttle_Control<=(1000+Buttom_Safe_Deadband)
 				&&Yaw_Control>=Yaw_Max*Scale_Pecent_Max
 				&&Roll_Control==0&&Pitch_Control==0
-				&&Unlock_Makesure_Cnt>50*2.0)//³ÖĞø2.0S
+				&&Unlock_Makesure_Cnt>50*2.0)//æŒç»­2.0S
 				||Forced_Lock_Makesure_Cnt>=50*5
-				||unlock_flag==0)//ÉÏËø
+				||unlock_flag==0)//ä¸Šé”
 			{
 				Controler_State=Lock_Controler;
 				Unlock_Makesure_Cnt=0;
@@ -278,7 +278,7 @@ void Remote_Control(void )
 				Forced_Lock_Makesure_Cnt=0;
 				Bling_Set(&rgb_green,3000,200,0.5,0,GPIO_PORTF_BASE,GPIO_PIN_3,0);
 				Bling_Mode=0;
-				Page_Number=0;//OLED»Ö¸´Ê×Ò³
+				Page_Number=0;//OLEDæ¢å¤é¦–é¡µ
 				Reset_Mag_Calibartion(1);
 				Reset_Accel_Calibartion(1);
 				Reset_RC_Calibartion(1);
@@ -295,11 +295,11 @@ void Remote_Control(void )
 				 &&Yaw_Control<=-Yaw_Max*Scale_Pecent_Max
 					 &&Roll_Control==0
 						 &&Pitch_Control==0
-							 &&Lock_Makesure_Cnt>50*2.0//³ÖĞø2.0S
+							 &&Lock_Makesure_Cnt>50*2.0//æŒç»­2.0S
 								 &&Temperature_Stable_Flag==1
 									&&Gyro_Safety_Calibration_Flag==1
 									&&Check_Calibration_Flag()==0x00)
-			            ||unlock_flag==1)//½âËø
+			            ||unlock_flag==1)//è§£é”
 			{
 				Controler_State=Unlock_Controler;
 				Lock_Makesure_Cnt=0;
@@ -307,30 +307,30 @@ void Remote_Control(void )
 				Forced_Lock_Makesure_Cnt=0;
 				Bling_Set(&rgb_green,5000,2000,0.1,0,GPIO_PORTF_BASE,GPIO_PIN_3,0);
 				Bling_Mode=0;
-				Page_Number=0;//OLED»Ö¸´Ê×Ò³
+				Page_Number=0;//OLEDæ¢å¤é¦–é¡µ
 				Reset_Mag_Calibartion(1);
 				Reset_Accel_Calibartion(1);
 				Reset_RC_Calibartion(1);
-				Auto_ReLock_Cnt=50*6;//³ÖĞø6S
+				Auto_ReLock_Cnt=50*6;//æŒç»­6S
 				Auto_Relock_Flag_Set=0;
-				if(RC_Data.thr_mode==AUTO_THR)//Èç¹ûÊÇÔÚ¶¨¸ßÄ£Ê½ÏÂ½âËø 
+				if(RC_Data.thr_mode==AUTO_THR)//å¦‚æœæ˜¯åœ¨å®šé«˜æ¨¡å¼ä¸‹è§£é” 
 				{  
-					 Unwanted_Lock_Flag=1;   //²»ĞèÒª×Ô¶¯½øÈëÉÏËøÄ£Ê½
+					 Unwanted_Lock_Flag=1;   //ä¸éœ€è¦è‡ªåŠ¨è¿›å…¥ä¸Šé”æ¨¡å¼
 					 Total_Controller.Height_Acce_Control.Integrate=-Total_Controller.Height_Acce_Control.Integrate_Max;
 				}
 				else Unwanted_Lock_Flag=0;
 			}
 			
-		//½âËøÖ®ºóÓÍÃÅµÍÎ»+Æ«º½¸ËÎ»»ØÖĞÖ®ºó
+		//è§£é”ä¹‹åæ²¹é—¨ä½ä½+åèˆªæ†ä½å›ä¸­ä¹‹å
 		if(Controler_State==Unlock_Controler
-		 &&Auto_Relock_Flag_Set==0//×Ô¶¯ÉÏËøÎ»Î´ÉèÖÃ
+		 &&Auto_Relock_Flag_Set==0//è‡ªåŠ¨ä¸Šé”ä½æœªè®¾ç½®
 		 &&Throttle_Control<=(1000+Buttom_Safe_Deadband)
-		 &&Pitch_Control==0&&Roll_Control==0&&Yaw_Control==0)//½âËøºóÒ£¸Ğ»ØÖĞ
+		 &&Pitch_Control==0&&Roll_Control==0&&Yaw_Control==0)//è§£é”åé¥æ„Ÿå›ä¸­
 		{
-			Auto_Relock_Flag_Set=1;//µ¥´Î½âËøºó£¬Ö»ÖÃÎ»Ò»´Î
+			Auto_Relock_Flag_Set=1;//å•æ¬¡è§£é”åï¼Œåªç½®ä½ä¸€æ¬¡
 			if(Unwanted_Lock_Flag==0)
 			{
-				Auto_Relock_Flag=1;//½âËø³õÊ¼Ê±¿ªÆô×Ô¶¯ÉÏËø±êÖ¾Î»
+				Auto_Relock_Flag=1;//è§£é”åˆå§‹æ—¶å¼€å¯è‡ªåŠ¨ä¸Šé”æ ‡å¿—ä½
 			}
 		}
 					
@@ -338,14 +338,14 @@ void Remote_Control(void )
 		{
 			if(Throttle_Control<=(1000+Buttom_Safe_Deadband)
 			 &&Pitch_Control==0&&Roll_Control==0&&Yaw_Control==0
-			 &&Controler_State==Unlock_Controler//×Ô¶¯ÉÏËø¼ÆÊıÆ÷
+			 &&Controler_State==Unlock_Controler//è‡ªåŠ¨ä¸Šé”è®¡æ•°å™¨
 			 &&Unwanted_Lock_Flag==0)
 			{
 				Auto_ReLock_Cnt--;
 				if(Auto_ReLock_Cnt<=0)  Auto_ReLock_Cnt=0;
 				if(Auto_ReLock_Cnt==0)
 				{
-					Controler_State=Lock_Controler;//ÔÙ´ÎÉÏËø
+					Controler_State=Lock_Controler;//å†æ¬¡ä¸Šé”
 					Bling_Set(&rgb_green,3000,200,0.5,0,GPIO_PORTF_BASE,GPIO_PIN_3,0);
 					Bling_Mode=0;
 				}
@@ -353,10 +353,10 @@ void Remote_Control(void )
 			
 			if((Throttle_Control>(1000+Buttom_Safe_Deadband)
 				||Pitch_Control!=0||Roll_Control!=0||Yaw_Control!=0)
-				&&Auto_ReLock_Cnt>0//×Ô¶¯ÉÏËø¼ÆÊıÆ÷
+				&&Auto_ReLock_Cnt>0//è‡ªåŠ¨ä¸Šé”è®¡æ•°å™¨
 				&&Unwanted_Lock_Flag==0)
 			{
-				Auto_Relock_Flag=0;//Ö»ÒªÒ£¸ĞÓĞ¶¯×÷£¬±¾´Î½âËøºó£¬×Ô¶¯ÉÏËø¾Í²»¿ªÆô
+				Auto_Relock_Flag=0;//åªè¦é¥æ„Ÿæœ‰åŠ¨ä½œï¼Œæœ¬æ¬¡è§£é”åï¼Œè‡ªåŠ¨ä¸Šé”å°±ä¸å¼€å¯
 				Auto_ReLock_Cnt=0;
 				Bling_Set(&rgb_green,5000,2000,0.3,0,GPIO_PORTF_BASE,GPIO_PIN_3,0);
 				Bling_Mode=0;
@@ -371,6 +371,6 @@ void Remote_Control(void )
 		Reset_RC_Calibartion(1);
 		shutdown_now_cal_flag=0;
 		Bling_Set(&rgb_green,0,1000,0.5,0,GPIO_PORTF_BASE,GPIO_PIN_3,0);
-		Page_Number=0;//OLED»Ö¸´Ê×Ò³
+		Page_Number=0;//OLEDæ¢å¤é¦–é¡µ
 	}
 }

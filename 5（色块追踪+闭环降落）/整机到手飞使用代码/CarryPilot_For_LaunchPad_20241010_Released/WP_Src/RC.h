@@ -1,10 +1,10 @@
 #ifndef __RC_H__
 #define __RC_H__
 
-#define  Scale_Pecent_Max  0.75f   //×î´ó½âËø·ùÖµÁ¿³ÌÒò×Ó
-#define  Pit_Rol_Max 35.0f           //×î´ó¸©Ñö¡¢ºá¹öÆÚÍû
-#define  Yaw_Max     200.0f          //×î´óÆ«º½ÆÚÍû
-#define  Buttom_Safe_Deadband  50.0f //ÓÍÃÅµ×²¿°²È«ËÀÇø
+#define  Scale_Pecent_Max  0.75f   //æœ€å¤§è§£é”å¹…å€¼é‡ç¨‹å› å­
+#define  Pit_Rol_Max 35.0f           //æœ€å¤§ä¿¯ä»°ã€æ¨ªæ»šæœŸæœ›
+#define  Yaw_Max     200.0f          //æœ€å¤§åèˆªæœŸæœ›
+#define  Buttom_Safe_Deadband  50.0f //æ²¹é—¨åº•éƒ¨å®‰å…¨æ­»åŒº
 
 
 
@@ -44,26 +44,26 @@ typedef enum
 
 typedef enum 
 {
-  HAND_THR=0,//ÊÖ¶¯¿ØÖÆÓÍÃÅ
-	AUTO_THR,	 //×Ô¶¯¿ØÖÆÓÍÃÅ
+  HAND_THR=0,//æ‰‹åŠ¨æ§åˆ¶æ²¹é—¨
+	AUTO_THR,	 //è‡ªåŠ¨æ§åˆ¶æ²¹é—¨
 }Thr_Mode;
 
 
 typedef enum 
 {
-  STABILIZE=0,//×ËÌ¬×ÔÎÈÄ£Ê½
-	POS_GUIDE,	//Î»ÖÃµ¼º½Ä£Ê½
-	POS_HOLD,   //GPS¶¨µãÄ£Ê½
+  STABILIZE=0,//å§¿æ€è‡ªç¨³æ¨¡å¼
+	POS_GUIDE,	//ä½ç½®å¯¼èˆªæ¨¡å¼
+	POS_HOLD,   //GPSå®šç‚¹æ¨¡å¼
 }Flight_Mode;
 
 
 typedef struct
 {
-  uint16_t max;		//×î´óÖµ
-	uint16_t min;		//×îĞ¡Öµ
-	uint16_t middle;//ÖĞ¼äÖµ
-	uint16_t deadband;    //ÖĞÎ»ËÀÇøÖµ
-	bool reverse_flag;    //·´Ïò±êÖ¾Î»
+  uint16_t max;		//æœ€å¤§å€¼
+	uint16_t min;		//æœ€å°å€¼
+	uint16_t middle;//ä¸­é—´å€¼
+	uint16_t deadband;    //ä¸­ä½æ­»åŒºå€¼
+	bool reverse_flag;    //åå‘æ ‡å¿—ä½
 	float scale;
 }rc_calibration;
 
@@ -90,7 +90,7 @@ extern rc RC_Data;
 extern uint16 Controler_State;
 extern uint8_t Auto_Relock_Flag_Set;
 extern int16_t Throttle_Rate;
-extern uint16_t Auto_ReLock_Cnt;//×Ô¶¯ÉÏËø¼ÆÊıÆ÷
+extern uint16_t Auto_ReLock_Cnt;//è‡ªåŠ¨ä¸Šé”è®¡æ•°å™¨
 extern uint16_t Unlock_Makesure_Cnt,Lock_Makesure_Cnt,Forced_Lock_Makesure_Cnt;
 extern uint16_t Unwanted_Lock_Flag;
 extern uint16 Throttle_Control;
