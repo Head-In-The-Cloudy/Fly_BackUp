@@ -3,9 +3,9 @@
 
 #define FLIGHT_SUBTASK_NUM 50
 
-#define WAY_POINT_NUM 5  //本次任务中的航点总个数  不包含自动起飞前后
+#define WAY_POINT_NUM 5 // 本次任务中的航点总个数  不包含自动起飞前后
 
-#define WORK_HEIGHT_CM  125//150
+#define WORK_HEIGHT_CM 125 // 150
 
 void flight_subtask_reset(void);
 
@@ -14,7 +14,7 @@ void flight_subtask_2(void);
 void flight_subtask_3(void);
 void flight_subtask_4(void);
 void flight_subtask_5(void);
-void flight_subtask_6(void);	
+void flight_subtask_6(void);
 void flight_subtask_7(void);
 void flight_subtask_8(void);
 
@@ -23,6 +23,7 @@ void flight_subtask_test(void);
 void go_to_point(vector3f target);
 void Traverse_Search_Track_Land(void);
 void Traverse_Search_Track_Land_Test(void);
+void Traverse_Search_3D_Track(void);
 
 uint8_t Auto_Takeoff(float target);
 void basic_auto_flight_support(void);
@@ -34,7 +35,7 @@ void Agriculture_UAV_Innovation(void);
 
 void Deliver_UAV_Basic(void);
 void Deliver_UAV_Innovation(void);
-void Deliver_UAV_Hulahoop(void);	
+void Deliver_UAV_Hulahoop(void);
 
 void Air_Ground_Extinguish_Fire_System_Basic(void);
 void Air_Ground_Extinguish_Fire_System_Innovation(void);
@@ -47,38 +48,23 @@ extern uint16_t flight_subtask_cnt[FLIGHT_SUBTASK_NUM];
 extern uint32_t execute_time_ms[FLIGHT_SUBTASK_NUM];
 extern uint32_t flight_global_cnt[FLIGHT_SUBTASK_NUM];
 
-extern Vector3f base_position; 
-
+extern Vector3f base_position;
 
 extern uint16_t barcode_id;
 extern uint8_t barcode_flag;
 
+extern float min_dis_cm, min_dis_angle, target_yaw_err;
 
-extern float min_dis_cm,min_dis_angle,target_yaw_err;
+#define Laser_Min_Info_Num 20
+extern float min_dis_cm_backups[Laser_Min_Info_Num], min_dis_angle_backups[Laser_Min_Info_Num];
 
+extern int16_t fire_x, fire_y; // 火源位置cm
+extern uint8_t fire_flag;	   // 火源标志
 
-#define Laser_Min_Info_Num  20
-extern float min_dis_cm_backups[Laser_Min_Info_Num],min_dis_angle_backups[Laser_Min_Info_Num];
-
-
-extern int16_t fire_x,fire_y;//火源位置cm
-extern uint8_t fire_flag;//火源标志
-
-extern uint16_t release_pwm_us;//释放灭火包舵机pwm
-extern uint16_t pinch_pwm_us;//夹住灭火包舵机pwm,需要在初始化的时候就给舵机赋此pwm值
-
+extern uint16_t release_pwm_us; // 释放灭火包舵机pwm
+extern uint16_t pinch_pwm_us;	// 夹住灭火包舵机pwm,需要在初始化的时候就给舵机赋此pwm值
 
 #endif
-
-
-
-
-
-
-
-
-
-
 
 /* Copyright (c)  2019-2030 Wuhan Nameless Innovation Technology Co.,Ltd. All rights reserved.*/
 /*----------------------------------------------------------------------------------------------------------------------/
@@ -97,7 +83,7 @@ extern uint16_t pinch_pwm_us;//夹住灭火包舵机pwm,需要在初始化的时候就给舵机赋此p
 *                                         追求极致用户体验，高效进阶学习之路；
 *                                         萌新不再孤单求索，合理把握开源尺度；
 *                                         响应国家扶贫号召，促进教育体制公平；
-*                                         新时代奋斗最出彩，建人类命运共同体。 
+*                                         新时代奋斗最出彩，建人类命运共同体。
 -----------------------------------------------------------------------------------------------------------------------
 *               生命不息、奋斗不止；前人栽树，后人乘凉！！！
 *               开源不易，且学且珍惜，祝早日逆袭、进阶成功！！！
@@ -107,13 +93,13 @@ extern uint16_t pinch_pwm_us;//夹住灭火包舵机pwm,需要在初始化的时候就给舵机赋此p
 *               CSDN博客：http://blog.csdn.net/u011992534
 *               B站教学视频：https://space.bilibili.com/67803559/#/video				优酷ID：NamelessCotrun无名小哥
 *               无名创新国内首款TI开源飞控设计初衷、知乎专栏:https://zhuanlan.zhihu.com/p/54471146
-*               TI教育无人机品质供应商，开源-教学-培养-竞赛,盘古 TI MCU系统板 NController多功能控制器https://item.taobao.com/item.htm?abbucket=19&id=697442280363 
+*               TI教育无人机品质供应商，开源-教学-培养-竞赛,盘古 TI MCU系统板 NController多功能控制器https://item.taobao.com/item.htm?abbucket=19&id=697442280363
 *               淘宝店铺：https://namelesstech.taobao.com/
 *               公司官网:www.nameless.tech
-*               修改日期:2023/06/20                  
+*               修改日期:2023/06/20
 *               版本：躺赢者PRO_V3——CarryPilot_V7.0.1
 *               版权所有，盗版必究。
-*               Copyright(C) 2019-2030 武汉无名创新科技有限公司 
+*               Copyright(C) 2019-2030 武汉无名创新科技有限公司
 *               All rights reserved
 -----------------------------------------------------------------------------------------------------------------------
 *               重要提示：
@@ -125,12 +111,3 @@ extern uint16_t pinch_pwm_us;//夹住灭火包舵机pwm,需要在初始化的时候就给舵机赋此p
 *               此种侵权所为会成为个人终身污点，影响升学、找工作、社会声誉、很快就很在无人机界出名，后果很严重。
 *               因此行为给公司造成重大损失者，会以法律途径解决，感谢您的合作，谢谢！！！
 ----------------------------------------------------------------------------------------------------------------------*/
-
-
-
-
-
-
-
-
-
