@@ -79,7 +79,7 @@ target.reserved2_int32=105536
 target.reserved3_int32=65537
 target.reserved4_int32=105537
 
-HEADER=[0xFF,0xFE]
+HEADER=[0xFF,0xFC]
 MODE=[0xF1,0xF2,0xF3]
 #__________________________________________________________________
 def package_blobs_data(mode):
@@ -151,7 +151,7 @@ def uart_data_prase(buf):
     if R.state==0 and buf==0xFF:#帧头1
         R.state=1
         R.uart_buf.append(buf)
-    elif R.state==1 and buf==0xFE:#帧头2
+    elif R.state==1 and buf==0xFC:#帧头2
         R.state=2
         R.uart_buf.append(buf)
     elif R.state==2 and buf<0xFF:#功能字
