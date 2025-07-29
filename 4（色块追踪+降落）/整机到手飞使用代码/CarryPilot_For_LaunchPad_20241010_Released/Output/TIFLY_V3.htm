@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Output\TIFLY_V3.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Output\TIFLY_V3.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jul 29 15:27:29 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Tue Jul 29 16:50:29 2025
 <BR><P>
 <H3>Maximum Stack Usage =       1104 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -4022,10 +4022,11 @@ Global Symbols
 <LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Paramter_Init_With_Flash
 </UL>
 
-<P><STRONG><a name="[82]"></a>Traverse_Search_Track_Land</STRONG> (Thumb, 772 bytes, Stack size 16 bytes, subtask_demo.o(i.Traverse_Search_Track_Land))
+<P><STRONG><a name="[82]"></a>Traverse_Search_Track_Land</STRONG> (Thumb, 900 bytes, Stack size 16 bytes, subtask_demo.o(i.Traverse_Search_Track_Land))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = Traverse_Search_Track_Land &rArr; basic_auto_flight_support &rArr; OpticalFlow_Control_Pure &rArr; Horizontal_Control_VIO &rArr; Horizontal_Control_VIO_Pure &rArr; OpticalFlow_Vel_Control &rArr; ENU_Desired_Accel_Transform_Angle &rArr; constrain_float
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpticalFlow_Vel_Control
+<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pythagorous3
+<LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpticalFlow_Vel_Control
 <LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OpticalFlow_Control_Pure
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Horizontal_Navigation
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PID_Control_SDK_Err_LPF
@@ -5764,6 +5765,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[19b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OBS_Sensor_Update
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Status_Feedback
 <LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ngs_nav_ctrl_finish_predict
+<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Traverse_Search_Track_Land
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Navigation_User_Setpoint
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Air_Ground_Extinguish_Fire_System_Innovation
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Air_Ground_Extinguish_Fire_System_Basic
