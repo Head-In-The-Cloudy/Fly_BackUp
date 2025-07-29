@@ -52,6 +52,7 @@ uint32_t execute_time_ms[FLIGHT_SUBTASK_NUM] = {0};	   // 飞行任务子线执行时间，
 uint32_t flight_global_cnt2[FLIGHT_SUBTASK_NUM] = {0}; // 飞行任务子线全局计数器2
 #define flight_subtask_delta 5						   // 5ms
 Vector3f base_position;								   // 用于记录导航基准原点位置
+int WAY_POINT_NUM_AUTO;
 
 /**
  * @brief 计算航点数量，没有测试
@@ -223,7 +224,7 @@ void go_to_point(vector3f target)
 	Horizontal_Navigation(target_position.x, target_position.y, target_position.z, GLOBAL_MODE, MAP_FRAME);
 }
 
-vector3f waypoint_usr_3f[WAY_POINT_NUM] =
+vector3f waypoint_usr_3f[] =
 	{
 		{0, 125, 130},
 		{85, 125, 130},
@@ -249,6 +250,8 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 	// 只初始化一次
 	static uint8_t n = 25; // 任务号
 
+	WAY_POINT_NUM_AUTO = get_Waypoint_Count(waypoint_usr_3f, sizeof(waypoint_usr_3f));
+
 	vector3f target_position;
 
 	if (flight_subtask_cnt[n] == 0) // 起飞点作为第一个悬停点
@@ -266,7 +269,7 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 		// 发送给openMV 告知需要进行  落地点检测  消息中必须附带 正方形 或者 圆形
 		SDK_DT_Send_Check_Search_LandColor(0x23, 0x02, 0x02, UART3_SDK); // 需要
 	}
-	else if (flight_subtask_cnt[n] >= 1 && flight_subtask_cnt[n] <= WAY_POINT_NUM) // 起飞之后原定悬停1S后再执行航点任务
+	else if (flight_subtask_cnt[n] >= 1 && flight_subtask_cnt[n] <= WAY_POINT_NUM_AUTO) // 起飞之后原定悬停1S后再执行航点任务
 	{
 		basic_auto_flight_support(); // 基本飞行支持软件
 
@@ -282,7 +285,7 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 			go_to_point(waypoint_usr_3f[flight_subtask_cnt[n] - 1]);
 			flight_subtask_cnt[n]++;
 
-			if (flight_subtask_cnt[n] == WAY_POINT_NUM + 1) // 如果已经到达最后一个航点
+			if (flight_subtask_cnt[n] == WAY_POINT_NUM_AUTO + 1) // 如果已经到达最后一个航点
 			{
 				flight_subtask_cnt[n] = 16; // 进入自动降落状态
 			}
