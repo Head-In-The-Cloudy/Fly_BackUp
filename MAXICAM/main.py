@@ -1,3 +1,18 @@
+'''
+ ▄████████    ▄████████    ▄▄▄▄███▄▄▄▄   ███    █▄     ▄████████
+███    ███   ███    ███  ▄██▀▀▀███▀▀▀██▄ ███    ███   ███    ███
+███    █▀    ███    ███  ███   ███   ███ ███    ███   ███    █▀
+███          ███    ███  ███   ███   ███ ███    ███   ███
+███        ▀███████████  ███   ███   ███ ███    ███ ▀███████████
+███    █▄    ███    ███  ███   ███   ███ ███    ███          ███
+███    ███   ███    ███  ███   ███   ███ ███    ███    ▄█    ███
+████████▀    ███    █▀    ▀█   ███   █▀  ████████▀   ▄████████▀
+
+
+╔═╗┌─┐┌┬┐┬ ┬┌─┐
+║  ├─┤││││ │└─┐
+╚═╝┴ ┴┴ ┴└─┘└─┘
+'''
 from maix import uart,camera, display, image,time
 import math
 import numpy as np
@@ -129,6 +144,7 @@ class Camus_Way:
                 code = DIRECTION_CODE.get((dx, dy), 5)
                 target.reserved3 = code
                 print(target.reserved3)
+                #1向前 2向右 3向下 4向左
                 target.state = 0
                 uart_flag = 1
                 while target.state != 1 and ctr.work_mode == 2:
