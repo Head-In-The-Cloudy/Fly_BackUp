@@ -24,7 +24,138 @@ THRESHOLD = (0,100) # Grayscale threshold for dark things... (5, 70, -23, 15, -5
 
 IMAGE_DIS_MAX=(int)(math.sqrt(IMAGE_WIDTH*IMAGE_WIDTH+IMAGE_HEIGHT*IMAGE_HEIGHT)/2)
 
+# Camus_Map 与 Camus_Way 封装版
+# - Camus_Map: 接收禁飞点 -> 路径规划 -> 发送起点/拐点/终点
+# - Camus_Way: 接收路径 -> 逐步发送方向 -> 等待应答 -> 执行detect
 
+import time
+from collections import deque
+
+ROWS, COLS = 7, 9
+START = (6, 8)  # 从(7,9)开始
+DIRS = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # 上 下 左 右
+DIRECTION_CODE = {(-1, 0): 1, (0, 1): 2, (1, 0): 3, (0, -1): 4}
+
+target = type('target', (), {'reserved1': 0, 'reserved2': 0, 'reserved3': 0, 'state': 0})()
+
+class Camus_Map:
+    def __init__(self):
+        self.no_fly = set()
+        self.path = []
+
+    def receive_no_fly(self, buf):
+        count = buf[2] // 2 - 1
+        self.no_fly = set()
+        for i in range(count):
+            x = buf[5 + 2 * i] - 1
+            y = buf[6 + 2 * i] - 1
+            self.no_fly.add((x, y))
+
+    def bfs_path(self, start, end):
+        visited = [[False] * COLS for _ in range(ROWS)]
+        prev = dict()
+        q = deque()
+        q.append(start)
+        visited[start[0]][start[1]] = True
+
+        while q:
+            cx, cy = q.popleft()
+            if (cx, cy) == end:
+                break
+            for dx, dy in DIRS:
+                nx, ny = cx + dx, cy + dy
+                if 0 <= nx < ROWS and 0 <= ny < COLS and (nx, ny) not in self.no_fly and not visited[nx][ny]:
+                    visited[nx][ny] = True
+                    prev[(nx, ny)] = (cx, cy)
+                    q.append((nx, ny))
+
+        if end not in prev and start != end:
+            return []
+
+        path = []
+        cur = end
+        path.append(cur)
+        while cur != start:
+            cur = prev[cur]
+            path.append(cur)
+        path.reverse()
+        return path
+
+    def generate_snake_targets(self):
+        targets = []
+        for i in range(ROWS):
+            rng = range(COLS) if i % 2 == 0 else reversed(range(COLS))
+            for j in rng:
+                if (i, j) not in self.no_fly:
+                    targets.append((i, j))
+        return targets
+
+    def extract_turning_points(self, path):
+        if len(path) < 2:
+            return path
+        result = [path[0]]
+        prev_dir = (path[1][0] - path[0][0], path[1][1] - path[0][1])
+        for i in range(2, len(path)):
+            new_dir = (path[i][0] - path[i-1][0], path[i][1] - path[i-1][1])
+            if new_dir != prev_dir:
+                result.append(path[i-1])
+            prev_dir = new_dir
+        result.append(path[-1])
+        return result
+
+    def plan_and_send(self):
+        targets = self.generate_snake_targets()
+        current = START
+        full_path = []
+        for tgt in targets:
+            path = self.bfs_path(current, tgt)
+            if not path:
+                continue
+            if full_path and full_path[-1] == path[0]:
+                path = path[1:]
+            full_path.extend(path)
+            current = tgt
+        self.path = full_path
+        points = self.extract_turning_points(full_path)
+        for pt in points:
+            target.reserved1 = pt[0] + 1
+            target.reserved2 = pt[1] + 1
+            target.state = 0
+            while target.state != 1:
+                time.sleep(0.01)  # 等待主控回应
+
+class Camus_Way:
+    def __init__(self, path):
+        self.path = path
+        self.detected = set()
+
+    def run(self):
+        for i in range(len(self.path)):
+            pt = self.path[i]
+            if i > 0:
+                prev = self.path[i - 1]
+                dx = pt[0] - prev[0]
+                dy = pt[1] - prev[1]
+                code = DIRECTION_CODE.get((dx, dy), 5)
+                target.reserved3 = code
+                target.state = 0
+                while target.state != 1:
+                    time.sleep(0.01)
+
+            if pt not in self.detected:
+                detect_function(pt[0], pt[1])
+                self.detected.add(pt)
+
+        target.reserved3 = 5
+        target.state = 0
+        while target.state != 1:
+            time.sleep(0.01)
+
+# 替代实际飞控检测函数
+def detect_function(x, y):
+    print(f"Detect @ ({x+1},{y+1})")
+
+camus_map = Camus_Map()
 
 class target_check(object):
     x=0          #int16_t
@@ -66,7 +197,7 @@ ctr=mode_ctrl()
 if ctr.check_show==1:
     dis=display.Display()
 R=uart_buf_prase()
-target=target_check();
+target=target_check()
 target.camera_id=0x01
 target.reserved1_u32=65536
 target.reserved2_u32=105536
@@ -174,48 +305,16 @@ def uart_data_prase(buf):
 def uart_data_read():
     uart_data_prase(myuart.read())
 
-# 绘制水平线
-def draw_hori_line(img, x0, x1, y, color):
-    for x in range(x0, x1):
-        img.set_pixel(x, y, color)
-# 绘制竖直线
-def draw_vec_line(img, x, y0, y1, color):
-    for y in range(y0, y1):
-        img.set_pixel(x, y, color)
-# 绘制矩形
-def draw_rect(img, x, y, w, h, color):
-    draw_hori_line(img, x, x+w, y, color)
-    draw_hori_line(img, x, x+w, y+h, color)
-    draw_vec_line(img, x, y, y+h, color)
-    draw_vec_line(img, x+w, y, y+h, color)
-
-
-blob_threshold_rgb=[40, 100,30,127,0,127]#(L Min, L Max, A Min, A Max, B Min, B Max)
-#blob_threshold_rgb=[30, 100,15,127,15,127]#(L Min, L Max, A Min, A Max, B Min, B Max)
-# Color Tracking Thresholds (L Min, L Max, A Min, A Max, B Min, B Max)
-# The below thresholds track in general red/green/blue things. You may wish to tune them...
-thresholds_rgb = [(30, 100, 15, 127, 15, 127), # generic_red_thresholds
-                  (30, 100, -64, -8, -32, 32), # generic_green_thresholds
-                  (0, 30, 0, 64, -128, 0)]     # generic_blue_thresholds
-
-
 b=0
 
-class singleline_check():
-    rho_err = 0
-    theta_err = 0
-    state = 0
-
-THRESHOLD = (0,100) # Grayscale threshold for dark things
-thresholds =[[0, 30, -30, 30, -30, 30]]
 def send_data_via_uart(data):
     for byte in data:
         myuart.write(byte)
 
-ctr.work_mode=0x01
+ctr.work_mode=0x00
 last_ticks=0
 ticks=0
-ticks_delta=0;
+ticks_delta=0
 while True:
     if ctr.work_mode==0x00:#空闲模式
         img=cam.read()
