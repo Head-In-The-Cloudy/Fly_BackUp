@@ -1,0 +1,10 @@
+.\output\watchdog.o: Libraries\driverlib\watchdog.c
+.\output\watchdog.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\watchdog.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\watchdog.o: .\Libraries\inc\hw_ints.h
+.\output\watchdog.o: .\Libraries\inc\hw_memmap.h
+.\output\watchdog.o: .\Libraries\inc\hw_types.h
+.\output\watchdog.o: .\Libraries\inc\hw_watchdog.h
+.\output\watchdog.o: Libraries\driverlib\debug.h
+.\output\watchdog.o: Libraries\driverlib\interrupt.h
+.\output\watchdog.o: Libraries\driverlib\watchdog.h

@@ -1,0 +1,11 @@
+.\output\lcd.o: Libraries\driverlib\lcd.c
+.\output\lcd.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\lcd.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\lcd.o: .\Libraries\inc\hw_memmap.h
+.\output\lcd.o: .\Libraries\inc\hw_types.h
+.\output\lcd.o: .\Libraries\inc\hw_ints.h
+.\output\lcd.o: .\Libraries\inc\hw_lcd.h
+.\output\lcd.o: Libraries\driverlib\interrupt.h
+.\output\lcd.o: Libraries\driverlib\sysctl.h
+.\output\lcd.o: Libraries\driverlib\lcd.h
+.\output\lcd.o: Libraries\driverlib\debug.h
