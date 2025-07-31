@@ -1,0 +1,13 @@
+.\output\eeprom.o: Libraries\driverlib\eeprom.c
+.\output\eeprom.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\eeprom.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\eeprom.o: .\Libraries\inc\hw_eeprom.h
+.\output\eeprom.o: .\Libraries\inc\hw_flash.h
+.\output\eeprom.o: .\Libraries\inc\hw_ints.h
+.\output\eeprom.o: .\Libraries\inc\hw_sysctl.h
+.\output\eeprom.o: .\Libraries\inc\hw_types.h
+.\output\eeprom.o: Libraries\driverlib\debug.h
+.\output\eeprom.o: Libraries\driverlib\flash.h
+.\output\eeprom.o: Libraries\driverlib\interrupt.h
+.\output\eeprom.o: Libraries\driverlib\sysctl.h
+.\output\eeprom.o: Libraries\driverlib\eeprom.h

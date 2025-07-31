@@ -1,0 +1,10 @@
+.\output\flash.o: Libraries\driverlib\flash.c
+.\output\flash.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\flash.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\flash.o: .\Libraries\inc\hw_flash.h
+.\output\flash.o: .\Libraries\inc\hw_ints.h
+.\output\flash.o: .\Libraries\inc\hw_sysctl.h
+.\output\flash.o: .\Libraries\inc\hw_types.h
+.\output\flash.o: Libraries\driverlib\debug.h
+.\output\flash.o: Libraries\driverlib\flash.h
+.\output\flash.o: Libraries\driverlib\interrupt.h

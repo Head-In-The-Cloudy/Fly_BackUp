@@ -1,0 +1,9 @@
+.\output\systick.o: Libraries\driverlib\systick.c
+.\output\systick.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\systick.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\systick.o: .\Libraries\inc\hw_ints.h
+.\output\systick.o: .\Libraries\inc\hw_nvic.h
+.\output\systick.o: .\Libraries\inc\hw_types.h
+.\output\systick.o: Libraries\driverlib\debug.h
+.\output\systick.o: Libraries\driverlib\interrupt.h
+.\output\systick.o: Libraries\driverlib\systick.h

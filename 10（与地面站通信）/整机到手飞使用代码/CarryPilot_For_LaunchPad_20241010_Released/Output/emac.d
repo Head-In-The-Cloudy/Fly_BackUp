@@ -1,0 +1,12 @@
+.\output\emac.o: Libraries\driverlib\emac.c
+.\output\emac.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\emac.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\emac.o: .\Libraries\inc\hw_ints.h
+.\output\emac.o: .\Libraries\inc\hw_memmap.h
+.\output\emac.o: .\Libraries\inc\hw_types.h
+.\output\emac.o: .\Libraries\inc\hw_emac.h
+.\output\emac.o: Libraries\driverlib\debug.h
+.\output\emac.o: Libraries\driverlib\emac.h
+.\output\emac.o: Libraries\driverlib\sysctl.h
+.\output\emac.o: Libraries\driverlib\interrupt.h
+.\output\emac.o: Libraries\driverlib\sw_crc.h

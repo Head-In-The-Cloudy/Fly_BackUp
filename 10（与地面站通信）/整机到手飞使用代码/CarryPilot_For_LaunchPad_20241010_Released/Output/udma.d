@@ -1,0 +1,9 @@
+.\output\udma.o: Libraries\driverlib\udma.c
+.\output\udma.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\udma.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\udma.o: .\Libraries\inc\hw_sysctl.h
+.\output\udma.o: .\Libraries\inc\hw_types.h
+.\output\udma.o: .\Libraries\inc\hw_udma.h
+.\output\udma.o: Libraries\driverlib\debug.h
+.\output\udma.o: Libraries\driverlib\interrupt.h
+.\output\udma.o: Libraries\driverlib\udma.h
