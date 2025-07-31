@@ -321,7 +321,7 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 				if (pythagorous3(Opv_Top_View_Target.sdk_target.x, Opv_Top_View_Target.sdk_target.y, 0) <= 5) // 第一阶  判断
 				{
 					flight_global_cnt[n]++;
-					if(flight_global_cnt[n] > 25)
+					if(flight_global_cnt[n] > 10)
 					{
 						flight_subtask_cnt[n] = 17;
 						flight_global_cnt[n] = 0;
@@ -370,11 +370,33 @@ void Traverse_Search_Track_Land(void) // 遍历航点 寻找形状 追踪形状 落地
 	}
 	else if (flight_subtask_cnt[n] == 17)
 	{
+		SDK_DT_Send_Check_Search_LandColor(0x00, 0x02, 0x02, UART3_SDK); // 不需要
+		basic_auto_flight_support(); // 基本飞行支持软件
+		target_position.x = VIO_SINS.Position[_EAST]+10;//offset 
+		target_position.z = NamelessQuad.Position[_UP];		
+		target_position.y = VIO_SINS.Position[_NORTH];													// 无人机悬停
+		Horizontal_Navigation(target_position.x, target_position.y, target_position.z, GLOBAL_MODE, MAP_FRAME); // 传如的值会和当前的值 进行对比 克服飘逸 不断纠正
+		execute_time_ms[n] = 3000 / flight_subtask_delta; // 子任务执行时间   flight_subtask_delta是每次进入这个函数的时间，进入一次会递减一次 将在下一个状态进行判断
+		// 3000-> 悬停3s
+	    flight_subtask_cnt[n] = 18;
+
+	}
+	else if (flight_subtask_cnt[n] == 18)
+	{
+		basic_auto_flight_support(); // 基本飞行支持软件
+		if (execute_time_ms[n] > 0)
+			execute_time_ms[n]--;
+		if(execute_time_ms[n]==0)
+		{
+			flight_subtask_cnt[n] = 19;
+		}
+	}
+	else if (flight_subtask_cnt[n] == 19)
+	{
 		Flight.yaw_ctrl_mode = ROTATE;
 		Flight.yaw_outer_control_output = RC_Data.rc_rpyt[RC_YAW];
-
 		OpticalFlow_Control_Pure(0);
-		Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, NUL, -30); // 高度控制
+		Flight_Alt_Hold_Control(ALTHOLD_AUTO_VEL_CTRL, NUL, -25); // 高度控制
 	}
 	else
 	{

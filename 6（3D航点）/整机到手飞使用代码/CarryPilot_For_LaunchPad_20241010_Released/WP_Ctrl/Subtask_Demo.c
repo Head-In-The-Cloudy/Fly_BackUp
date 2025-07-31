@@ -478,10 +478,10 @@ void Traverse_Search_3D_Track(void)
 	{
 		basic_auto_flight_support(); // 基本飞行支持软件
 
-		if (Opv_Top_View_Target.trust_flag == 1) // 如果检测到正确的 正方形 或者原形的落地点
-		{
-			flight_subtask_cnt[n] = 15; // 偏离 默认航线  进行 目标水平位置的 追踪
-		}
+//		if (Opv_Top_View_Target.trust_flag == 1) // 如果检测到正确的 正方形 或者原形的落地点
+//		{
+//			flight_subtask_cnt[n] = 15; // 偏离 默认航线  进行 目标水平位置的 追踪
+//		}
 
 		if (execute_time_ms[n] > 0)
 			execute_time_ms[n]--;
