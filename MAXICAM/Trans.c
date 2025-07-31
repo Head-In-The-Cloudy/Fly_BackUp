@@ -1,46 +1,4 @@
-//下面为ChatGPT解释流程
-/*
-Pixel_Size_MV 和 Pixel_Size_CV：这些是针对两种不同的摄像头模型（OV7725 和 OV5647）的每个像素对应的实际尺寸。它们用于计算每个像素代表的实际物理距离。
-
-Focal_Length_MV 和 Focal_Length_CV：分别表示摄像头的焦距。
-
-OV7725_Sensor_Width_MM 和 OV7725_Sensor_Height_MM：这些是传感器的物理尺寸，单位是毫米。
-
-Pixel_Image_Width_MV 和 Pixel_Image_Height_MV：表示摄像头的图像分辨率（在像素级别）。
-
-Pixel_Image_View_Angle_X_MV 和 Pixel_Image_View_Angle_Y_MV：这两个参数给出了摄像头的视角宽度和高度。即，在一个特定的角度内，摄像头能看到的区域宽度和高度。
-
-AprilTag_Side_Length：表示AprilTag（视觉标记）边长，用于计算物体位置。
-*/
-
-/*
-Get_Camera_Wide_Angle 函数根据视角计算，得到相应的水平视角和垂直视角的范围。
-这是根据视角和焦距来决定的，目的是为了从焦距和视角推算出真实的视场范围。
-*/
-
-/*
-. Sensor_Parameter_Sort函数
-
-_P1 和 _P2 分别表示在 X 和 Y 轴上的像素对应的实际物理距离（通过视角和焦距计算得到的）。
-
-_CX 和 _CY 分别是图像中心的像素坐标。
-
-通过传入的 (tx, ty)（目标在图像中的像素位置），
-以及传感器的 pitch、roll 和 alt（飞行器的姿态角度和高度），可以计算目标的实际位置
-*/
-
-/*
-tmp_x 和 tmp_y 分别代表目标的像素坐标与图像中心之间的角度差。
-
-tx 和 ty 通过 fast_atan 计算得到的角度变化，将目标从像素坐标系转化为真实世界的角度。
-
-roll 和 pitch（飞行器的俯仰角度和滚转角度）会影响目标的实际位置。
-
-通过 FastTan（快速计算正切函数）以及计算的角度和视场宽度/高度 (_P1 和 _P2)
-最终得到目标的实际物理坐标 _DX 和 _DY。
-*/
-
-//只能修改MV部分
+//只修改MV部分
 /*
 _DX = 0.5f * alt * _TX / _P1;
 _DY = 0.5f * alt * _TY / _P2;

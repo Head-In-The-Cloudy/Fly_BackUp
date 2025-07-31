@@ -1,6 +1,6 @@
 from maix import camera, display, image, nn, app
 
-detector = nn.YOLOv5(model="/root/models/yolov5s.mud", dual_buff = True)
+detector = nn.YOLOv5(model="/root/models/maixhub/229475/model_229475.mud", dual_buff = True)
 
 cam = camera.Camera(detector.input_width(), detector.input_height(), detector.input_format())
 disp = display.Display()
