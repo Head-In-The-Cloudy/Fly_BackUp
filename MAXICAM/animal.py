@@ -1,11 +1,48 @@
+'''
+ ▄████████    ▄████████    ▄▄▄▄███▄▄▄▄   ███    █▄     ▄████████
+███    ███   ███    ███  ▄██▀▀▀███▀▀▀██▄ ███    ███   ███    ███
+███    █▀    ███    ███  ███   ███   ███ ███    ███   ███    █▀
+███          ███    ███  ███   ███   ███ ███    ███   ███
+███        ▀███████████  ███   ███   ███ ███    ███ ▀███████████
+███    █▄    ███    ███  ███   ███   ███ ███    ███          ███
+███    ███   ███    ███  ███   ███   ███ ███    ███    ▄█    ███
+████████▀    ███    █▀    ▀█   ███   █▀  ████████▀   ▄████████▀
+
+
+╔═╗┌─┐┌┬┐┬ ┬┌─┐
+║  ├─┤││││ │└─┐
+╚═╝┴ ┴┴ ┴└─┘└─┘
+'''
+'''
+工作流程：
+Maping:
+state1:[Receive]
+    buf[4] = mode(0x01)
+    buf[4+i],buf[4+i+1] = (x行,y列)
+state2:[Send]
+    target.reserved1,target.reserved2 = (x行,y列)
+state3:[Receive]
+    buf[4] = mode
+    if:buf[5] = 1(OK)
+        jump state2
+
+Waying:
+state1:[Receive]
+    buf[4] = mode
+state2:[Send]
+    target.reserved3 = 飞行方向(上1,右2,下3,左4,5结束)
+    if 找到新格点，进行检测并检测到动物
+        target.reserved4 = 检测到的动物(孔雀1,大象2,,狼3,猴子4,老虎5,没检测到默认置0)
+state3:[Receive]
+    buf[4] = mode(0x02)
+    if:buf[5] = 1(OK)
+        jump state2     
+'''
 from maix import uart,camera, display, image,time
 import math
 import numpy as np
-
-
-            # Create a clock object to track the FPS.
-#sensor.set_auto_exposure(True, exposure_us=5000) # 设置自动曝光sensor.get_exposure_us()
-
+import time
+from collections import deque
 
 IMAGE_WIDTH=640
 IMAGE_HEIGHT=480
@@ -14,29 +51,14 @@ cam.skip_frames(30)
 
 
 devices=uart.list_devices()
-#uart = uart.UART(devices[0],115200)
-
-myuart = uart.UART(devices[0],230400)
+myuart = uart.UART(devices[0],115200)
 myuart.open()
-THRESHOLD = (0,100) # Grayscale threshold for dark things... (5, 70, -23, 15, -57, 0)(18, 100, 31, -24, -21, 70)
-#IMAGE_WIDTH=sensor.snapshot().width()
-#IMAGE_HEIGHT=sensor.snapshot().height()
-
 IMAGE_DIS_MAX=(int)(math.sqrt(IMAGE_WIDTH*IMAGE_WIDTH+IMAGE_HEIGHT*IMAGE_HEIGHT)/2)
-
-# Camus_Map 与 Camus_Way 封装版
-# - Camus_Map: 接收禁飞点 -> 路径规划 -> 发送起点/拐点/终点
-# - Camus_Way: 接收路径 -> 逐步发送方向 -> 等待应答 -> 执行detect
-
-import time
-from collections import deque
 
 ROWS, COLS = 7, 9
 START = (6, 8)  # 从(7,9)开始
 DIRS = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # 上 下 左 右
 DIRECTION_CODE = {(-1, 0): 1, (0, 1): 2, (1, 0): 3, (0, -1): 4}
-
-target = type('target', (), {'reserved1': 0, 'reserved2': 0, 'reserved3': 0, 'state': 0})()
 
 class Camus_Map:
     def __init__(self):
@@ -44,7 +66,7 @@ class Camus_Map:
         self.path = []
 
     def receive_no_fly(self, buf):
-        count = buf[2] // 2 - 1
+        count = buf[3] // 2 - 1
         self.no_fly = set()
         for i in range(count):
             x = buf[5 + 2 * i] - 1
@@ -104,6 +126,7 @@ class Camus_Map:
         return result
 
     def plan_and_send(self):
+        global uart_flag
         targets = self.generate_snake_targets()
         current = START
         full_path = []
@@ -121,8 +144,13 @@ class Camus_Map:
             target.reserved1 = pt[0] + 1
             target.reserved2 = pt[1] + 1
             target.state = 0
-            while target.state != 1:
-                time.sleep(0.01)  # 等待主控回应
+            print(target.reserved1,target.reserved2)
+            uart_flag = 1
+            while target.state != 1 and ctr.work_mode == 1:
+                yield
+            
+            if ctr.work_mode != 1:
+                break
 
 class Camus_Way:
     def __init__(self, path):
@@ -130,6 +158,8 @@ class Camus_Way:
         self.detected = set()
 
     def run(self):
+        global uart_flag
+        print(len(self.path))
         for i in range(len(self.path)):
             pt = self.path[i]
             if i > 0:
@@ -138,9 +168,12 @@ class Camus_Way:
                 dy = pt[1] - prev[1]
                 code = DIRECTION_CODE.get((dx, dy), 5)
                 target.reserved3 = code
+                print(target.reserved3)
+                #1向前 2向右 3向下 4向左
                 target.state = 0
-                while target.state != 1:
-                    time.sleep(0.01)
+                uart_flag = 1
+                while target.state != 1 and ctr.work_mode == 2:
+                    yield
 
             if pt not in self.detected:
                 detect_function(pt[0], pt[1])
@@ -148,14 +181,13 @@ class Camus_Way:
 
         target.reserved3 = 5
         target.state = 0
-        while target.state != 1:
-            time.sleep(0.01)
+        while target.state != 1 and ctr.work_mode == 2:
+            yield  # 等待主控回应
+
 
 # 替代实际飞控检测函数
 def detect_function(x, y):
     print(f"Detect @ ({x+1},{y+1})")
-
-camus_map = Camus_Map()
 
 class target_check(object):
     x=0          #int16_t
@@ -190,7 +222,7 @@ class uart_buf_prase(object):
     state = 0
 
 class mode_ctrl(object):
-    work_mode = 0x01 #工作模式.默认是点检测，可以通过串口设置成其他模式
+    work_mode = 0x00 #工作模式.默认是点检测，可以通过串口设置成其他模式
     check_show = 1   #开显示，在线调试时可以打开，离线使用请关闭，可提高计算速度
 
 ctr=mode_ctrl()
@@ -203,7 +235,6 @@ target.reserved1_u32=65536
 target.reserved2_u32=105536
 target.reserved3_u32=65537
 target.reserved4_u32=105537
-
 HEADER=[0xFF,0xFC]
 MODE=[0xF1,0xF2,0xF3]
 #__________________________________________________________________
@@ -251,9 +282,9 @@ def package_blobs_data(mode):
     #返回打包好的数据
     return bytes(data)
 #__________________________________________________________________
-
 #串口数据解析
 def Receive_Anl(data_buf,num):
+    global Map_buf
     #和校验
     sum = 0
     i = 0
@@ -267,97 +298,123 @@ def Receive_Anl(data_buf,num):
     if data_buf[2]==0xA0:
         #设置模块工作模式
         ctr.work_mode = data_buf[4]
+        target.state = data_buf[5]
+        Map_buf = data_buf
         print(ctr.work_mode)
         print("Set work mode success!")
 
 #__________________________________________________________________
-def uart_data_prase(buf):
-    if R.state==0 and buf==0xFF:#帧头1
-        R.state=1
-        R.uart_buf.append(buf)
-    elif R.state==1 and buf==0xFE:#帧头2
-        R.state=2
-        R.uart_buf.append(buf)
-    elif R.state==2 and buf<0xFF:#功能字
-        R.state=3
-        R.uart_buf.append(buf)
-    elif R.state==3 and buf<50:#数据长度小于50
-        R.state=4
-        R._data_len=buf  #有效数据长度
-        R._data_cnt=buf+5#总数据长度
-        R.uart_buf.append(buf)
-    elif R.state==4 and R._data_len>0:#存储对应长度数据
-        R._data_len=R._data_len-1
-        R.uart_buf.append(buf)
-        if R._data_len==0:
-            R.state=5
-    elif R.state==5:
-        R.uart_buf.append(buf)
-        R.state=0
-        Receive_Anl(R.uart_buf,R.uart_buf[3]+5)
-#        print(R.uart_buf)
-        R.uart_buf=[]#清空缓冲区，准备下次接收数据
-    else:
-        R.state=0
-        R.uart_buf=[]#清空缓冲区，准备下次接收数据
+def uart_data_prase(data):
+    if data:
+        for buf in data:
+            if R.state==0 and buf==0xFF:#帧头1
+                R.state=1
+                R.uart_buf.append(buf)
+            elif R.state==1 and buf==0xFC:#帧头2
+                R.state=2
+                R.uart_buf.append(buf)
+            elif R.state==2 and buf<0xFF:#功能字
+                R.state=3
+                R.uart_buf.append(buf)
+            elif R.state==3 and buf<50:#数据长度小于50
+                R.state=4
+                R._data_len=buf  #有效数据长度
+                R._data_cnt=buf+5#总数据长度
+                R.uart_buf.append(buf)
+            elif R.state==4 and R._data_len>0:#存储对应长度数据
+                R._data_len=R._data_len-1
+                R.uart_buf.append(buf)
+                if R._data_len==0:
+                    R.state=5
+            elif R.state==5:
+                R.uart_buf.append(buf)
+                R.state=0
+                Receive_Anl(R.uart_buf,R.uart_buf[3]+5)
+        #        print(R.uart_buf)
+                R.uart_buf=[]#清空缓冲区，准备下次接收数据
+            else:
+                R.state=0
+                R.uart_buf=[]#清空缓冲区，准备下次接收数据
 #__________________________________________________________________
 
 def uart_data_read():
     uart_data_prase(myuart.read())
 
-b=0
-
 def send_data_via_uart(data):
     for byte in data:
         myuart.write(byte)
 
+camus_map = Camus_Map()
+#camus_way = Camus_Way(camus_map.path)
+#######生成器王朝了，有没有懂的#####
+planner = None
+camus_runner = None
+##################################
+
+def Handle_Camus_Map(buf):
+    global camus_way,planner
+    camus_map.receive_no_fly(buf)
+    planner = camus_map.plan_and_send()
+    #camus_map.plan_and_send()
+    #camus_way = Camus_Way(camus_map.path)
+    
+def Run_Camus_Way():
+    camus_way.run()
+
+path_planned = False
+uart_flag = 1
 ctr.work_mode=0x00
-last_ticks=0
-ticks=0
-ticks_delta=0
+Map_buf = []
+print("[INFO]Waiting...")
 while True:
-    if ctr.work_mode==0x00:#空闲模式
+    if ctr.work_mode==0x00:#待机模式
         img=cam.read()
-    elif ctr.work_mode==0x01:#色块模式
+    elif ctr.work_mode==0x01:#路线规划模式
+        uart_flag = 0
+        if not path_planned and Map_buf != b"":  # 只接受一次 buf
+            print("Begin Map")
+            Handle_Camus_Map(Map_buf)
+            Map_buf = []
+            path_planned = True
+        if planner :
+            try:
+                next(planner)
+            except StopIteration:
+                planner = None
+                print("Map Send End")
+                camus_way = Camus_Way(camus_map.path)
+        #Camus_Map(R.uart_buf)
+    elif ctr.work_mode==0x02:#路线导航模式
+        uart_flag = 0
+        if camus_runner is None:
+            camus_runner = camus_way.run()
+            Run_Camus_Way()
+        try:
+            next(camus_runner)
+        except StopIteration:
+            print("[INFO] Navigation Finished.")
+            camus_runner = None
+        #Run_Camus_Way()
+    elif ctr.work_mode==0x03:
         img=cam.read()
 
-    elif ctr.work_mode==0x02:#AprilTag模式
-        img=cam.read()
-    elif ctr.work_mode==0x03:#巡线模式
+    elif ctr.work_mode==0x04:
         img=cam.read()
 
-    elif ctr.work_mode==0x04:#AprilTag模式
+    elif ctr.work_mode==0x05:
         img=cam.read()
 
-    elif ctr.work_mode==0x05:#预留模式1
-        img=cam.read()
-
-    elif ctr.work_mode==0x06:#预留模式2
+    elif ctr.work_mode==0x06:
         img=cam.read()
  
-    elif ctr.work_mode==0x07:#识别底部颜色，用于2021年国赛植保飞行器
+    elif ctr.work_mode==0x07:
         img=cam.read()
 
-    elif ctr.work_mode==0x0B:#识别底部颜色，用于2021年国赛植保飞行器
+    elif ctr.work_mode==0x0B:
         img=cam.read()
     else:
         pass
-
-    myuart.write(bytes(package_blobs_data(ctr.work_mode)))
-#    myuart.write(bytes(package_blobs_data(ctr.work_mode)))
-#    myuart.write(bytes(HEADER))
-#    send_data_via_uart(package_blobs_data(ctr.work_mode))
+    if uart_flag :
+        myuart.write(bytes(package_blobs_data(ctr.work_mode)))
     uart_data_read()
-#__________________________________________________________________
-    #计算fps
-    last_ticks=ticks
-    ticks=time.time_ms()#ticks=time.ticks_ms()
-                      #新版本OPENMV固件使用time.ticks_ms()
-                      #旧版本OPENMV固件使用time.ticks()
-    ticks_delta=ticks-last_ticks
-    if ticks_delta<1:
-        ticks_delta=1
-    target.fps=(int)(1000/ticks_delta)
-    #target.fps = (int)(clock.fps())
-#__________________________________________________________________
-    print(target.fps,ctr.work_mode)
+
