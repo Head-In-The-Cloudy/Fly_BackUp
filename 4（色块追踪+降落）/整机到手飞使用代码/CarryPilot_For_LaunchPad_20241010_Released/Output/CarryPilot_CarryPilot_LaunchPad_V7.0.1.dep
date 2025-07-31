@@ -4312,7 +4312,7 @@ I (.\WP_Src\Reserved_Serialport.h)(0x6273D66C)
 I (.\WP_Ctrl\Subtask_Demo.h)(0x688875A9)
 I (.\WP_Src\LSN10.h)(0x6275490C)
 I (.\WP_Src\speaker.h)(0x62EBC106)
-F (.\WP_Ctrl\Subtask_Demo.c)(0x68888B26)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\Libraries\inc -I .\Libraries\utils -I .\WP_Ctrl -I .\WP_Src -I .\User -I .\Libraries\utils -I .\Libraries\driverlib-I.\RTE\_CarryPilot_LaunchPad_V7.0.1-IE:\Embedded_System\Environment\Keil\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IE:\Embedded_System\Environment\Keil\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_BLIZZARD_RB1 -D__USE_ANSI_EXAMPLE_RAND-o .\output\subtask_demo.o --omf_browse .\output\subtask_demo.crf --depend .\output\subtask_demo.d)
+F (.\WP_Ctrl\Subtask_Demo.c)(0x6888CC36)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I .\Libraries\inc -I .\Libraries\utils -I .\WP_Ctrl -I .\WP_Src -I .\User -I .\Libraries\utils -I .\Libraries\driverlib-I.\RTE\_CarryPilot_LaunchPad_V7.0.1-IE:\Embedded_System\Environment\Keil\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-IE:\Embedded_System\Environment\Keil\ARM\CMSIS\Include-D__UVISION_VERSION="529" -DTM4C123GH6PM -Drvmdk -DPART_TM4C123GH6PM -DTARGET_IS_BLIZZARD_RB1 -D__USE_ANSI_EXAMPLE_RAND-o .\output\subtask_demo.o --omf_browse .\output\subtask_demo.crf --depend .\output\subtask_demo.d)
 I (.\User\Headfile.h)(0x670C75D2)
 I (E:\Embedded_System\Environment\Keil\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
 I (E:\Embedded_System\Environment\Keil\ARM\ARMCC\include\stdlib.h)(0x5D9AD21A)
