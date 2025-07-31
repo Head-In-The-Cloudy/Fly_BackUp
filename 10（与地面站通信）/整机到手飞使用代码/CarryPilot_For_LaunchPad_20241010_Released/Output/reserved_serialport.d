@@ -1,11 +1,11 @@
 .\output\reserved_serialport.o: WP_Src\Reserved_Serialport.c
 .\output\reserved_serialport.o: .\User\Headfile.h
-.\output\reserved_serialport.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\reserved_serialport.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\reserved_serialport.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\reserved_serialport.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\reserved_serialport.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\reserved_serialport.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\reserved_serialport.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\reserved_serialport.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\reserved_serialport.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\reserved_serialport.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\reserved_serialport.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\reserved_serialport.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\reserved_serialport.o: .\Libraries\inc\hw_memmap.h
 .\output\reserved_serialport.o: .\Libraries\inc\hw_types.h
 .\output\reserved_serialport.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\reserved_serialport.o: .\WP_Src\Ringbuf.h
 .\output\reserved_serialport.o: .\WP_Src\NCLink.h
 .\output\reserved_serialport.o: .\Libraries\utils\uartstdio.h
-.\output\reserved_serialport.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\reserved_serialport.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\reserved_serialport.o: .\WP_Src\Time.h
 .\output\reserved_serialport.o: .\WP_Src\Time_Cnt.h
 .\output\reserved_serialport.o: .\WP_Src\Schedule.h

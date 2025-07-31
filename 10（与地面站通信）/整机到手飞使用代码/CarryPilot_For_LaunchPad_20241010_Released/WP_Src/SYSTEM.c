@@ -84,7 +84,7 @@ void HardWave_Init(void)
   ConfigureUART3();							 //串口3初始化，OPENMV、树莓派视觉模组、SDK模式串口
 	Reserved_Serialport_Init();		 //串口6初始化，前向超声波测距
   tofsense_init();							 //串口7初始化.超声波模块/TOF解析串口	
-  Uart2_Serialport_Init();			 //串口2初始化，光流模块LC307/激光雷达数据解析
+  Uart2_Serialport_Init();			 //串口2初始化，(光流模块LC307/激光雷达数据解析),change to groundstation
 	ConfigureUART_Speaker(115200); //串口4/5初始化
 	Temperature_Ctrl_Init();			 //温度控制器初始化 
   delay_ms(500);								 //初始化延时，主要用于等待openmv模块就位，便于初始化配置其工作模式

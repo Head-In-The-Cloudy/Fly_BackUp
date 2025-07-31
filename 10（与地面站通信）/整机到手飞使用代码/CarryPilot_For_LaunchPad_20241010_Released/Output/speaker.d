@@ -1,11 +1,11 @@
 .\output\speaker.o: WP_Src\speaker.c
 .\output\speaker.o: .\User\Headfile.h
-.\output\speaker.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\speaker.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\speaker.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\speaker.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\speaker.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\speaker.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\speaker.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\speaker.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\speaker.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\speaker.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\speaker.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\speaker.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\speaker.o: .\Libraries\inc\hw_memmap.h
 .\output\speaker.o: .\Libraries\inc\hw_types.h
 .\output\speaker.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\speaker.o: .\WP_Src\Ringbuf.h
 .\output\speaker.o: .\WP_Src\NCLink.h
 .\output\speaker.o: .\Libraries\utils\uartstdio.h
-.\output\speaker.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\speaker.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\speaker.o: .\WP_Src\Time.h
 .\output\speaker.o: .\WP_Src\Time_Cnt.h
 .\output\speaker.o: .\WP_Src\Schedule.h

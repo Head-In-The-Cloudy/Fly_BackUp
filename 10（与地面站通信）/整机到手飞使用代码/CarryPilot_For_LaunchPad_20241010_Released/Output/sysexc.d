@@ -1,6 +1,6 @@
 .\output\sysexc.o: Libraries\driverlib\sysexc.c
-.\output\sysexc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\sysexc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\sysexc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\sysexc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\output\sysexc.o: .\Libraries\inc\hw_ints.h
 .\output\sysexc.o: .\Libraries\inc\hw_sysctl.h
 .\output\sysexc.o: .\Libraries\inc\hw_sysexc.h

@@ -1,11 +1,11 @@
 .\output\ssd1306.o: WP_Src\ssd1306.c
 .\output\ssd1306.o: .\User\Headfile.h
-.\output\ssd1306.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\ssd1306.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\ssd1306.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\ssd1306.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\ssd1306.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\ssd1306.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\ssd1306.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\ssd1306.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\ssd1306.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\ssd1306.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\ssd1306.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\ssd1306.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\ssd1306.o: .\Libraries\inc\hw_memmap.h
 .\output\ssd1306.o: .\Libraries\inc\hw_types.h
 .\output\ssd1306.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\ssd1306.o: .\WP_Src\Ringbuf.h
 .\output\ssd1306.o: .\WP_Src\NCLink.h
 .\output\ssd1306.o: .\Libraries\utils\uartstdio.h
-.\output\ssd1306.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\ssd1306.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\ssd1306.o: .\WP_Src\Time.h
 .\output\ssd1306.o: .\WP_Src\Time_Cnt.h
 .\output\ssd1306.o: .\WP_Src\Schedule.h

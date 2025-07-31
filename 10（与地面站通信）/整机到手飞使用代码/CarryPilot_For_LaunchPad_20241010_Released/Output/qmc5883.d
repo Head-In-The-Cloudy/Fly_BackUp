@@ -1,11 +1,11 @@
 .\output\qmc5883.o: WP_Src\QMC5883.c
 .\output\qmc5883.o: .\User\Headfile.h
-.\output\qmc5883.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\qmc5883.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\qmc5883.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\qmc5883.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\qmc5883.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\qmc5883.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\qmc5883.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\qmc5883.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\qmc5883.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\qmc5883.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\qmc5883.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\qmc5883.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\qmc5883.o: .\Libraries\inc\hw_memmap.h
 .\output\qmc5883.o: .\Libraries\inc\hw_types.h
 .\output\qmc5883.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\qmc5883.o: .\WP_Src\Ringbuf.h
 .\output\qmc5883.o: .\WP_Src\NCLink.h
 .\output\qmc5883.o: .\Libraries\utils\uartstdio.h
-.\output\qmc5883.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\qmc5883.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\qmc5883.o: .\WP_Src\Time.h
 .\output\qmc5883.o: .\WP_Src\Time_Cnt.h
 .\output\qmc5883.o: .\WP_Src\Schedule.h

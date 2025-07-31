@@ -12,7 +12,7 @@ typedef enum
 /**********************************/
 
 
-#define  FORBIDDEN_RIGION_MAX_NUM 10 //最多可以承载的 禁飞点的数量
+#define  FORBIDDEN_RIGION_MAX_NUM 30 //最多可以承载的 禁飞点的数量
 
 typedef  struct
 {
@@ -130,6 +130,7 @@ void SDK_Data_Receive_Prepare_2(uint8_t data);
 void SDK_Data_Receive_Prepare_GroundStation(uint8_t data);
 void Data_Receive_GroundStation(uint8_t *data_buf,uint8_t num,GroundStation_To_TIVA_Target* target);
 void SDK_DT_Send_To_GroundStation(uint8_t animal_type,uint8_t animal_num,vector2f Rigion);
+void GroundStation_Begin_MAP(void) ; //主函数中会 一直调用他
 /*********************/
 	
 #endif

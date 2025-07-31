@@ -1,6 +1,6 @@
 .\output\epi.o: Libraries\driverlib\epi.c
-.\output\epi.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\epi.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\epi.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\epi.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\output\epi.o: .\Libraries\inc\hw_epi.h
 .\output\epi.o: .\Libraries\inc\hw_ints.h
 .\output\epi.o: .\Libraries\inc\hw_memmap.h

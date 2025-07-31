@@ -1,11 +1,11 @@
 .\output\icm2068x.o: WP_Src\ICM2068X.c
 .\output\icm2068x.o: .\User\Headfile.h
-.\output\icm2068x.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\icm2068x.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\icm2068x.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\icm2068x.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\icm2068x.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\icm2068x.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\icm2068x.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\icm2068x.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\icm2068x.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\icm2068x.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\icm2068x.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\icm2068x.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\icm2068x.o: .\Libraries\inc\hw_memmap.h
 .\output\icm2068x.o: .\Libraries\inc\hw_types.h
 .\output\icm2068x.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\icm2068x.o: .\WP_Src\Ringbuf.h
 .\output\icm2068x.o: .\WP_Src\NCLink.h
 .\output\icm2068x.o: .\Libraries\utils\uartstdio.h
-.\output\icm2068x.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\icm2068x.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\icm2068x.o: .\WP_Src\Time.h
 .\output\icm2068x.o: .\WP_Src\Time_Cnt.h
 .\output\icm2068x.o: .\WP_Src\Schedule.h

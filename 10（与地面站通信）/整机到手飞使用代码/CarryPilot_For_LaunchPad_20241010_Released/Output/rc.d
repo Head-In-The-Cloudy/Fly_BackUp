@@ -1,11 +1,11 @@
 .\output\rc.o: WP_Src\RC.c
 .\output\rc.o: .\User\Headfile.h
-.\output\rc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\rc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\rc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\rc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\rc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\rc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\rc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\rc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\rc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\rc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\rc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\rc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\rc.o: .\Libraries\inc\hw_memmap.h
 .\output\rc.o: .\Libraries\inc\hw_types.h
 .\output\rc.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\rc.o: .\WP_Src\Ringbuf.h
 .\output\rc.o: .\WP_Src\NCLink.h
 .\output\rc.o: .\Libraries\utils\uartstdio.h
-.\output\rc.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\rc.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\rc.o: .\WP_Src\Time.h
 .\output\rc.o: .\WP_Src\Time_Cnt.h
 .\output\rc.o: .\WP_Src\Schedule.h

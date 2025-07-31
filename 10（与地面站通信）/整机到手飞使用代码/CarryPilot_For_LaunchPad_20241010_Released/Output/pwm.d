@@ -1,6 +1,6 @@
 .\output\pwm.o: Libraries\driverlib\pwm.c
-.\output\pwm.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\pwm.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\pwm.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\pwm.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\output\pwm.o: .\Libraries\inc\hw_ints.h
 .\output\pwm.o: .\Libraries\inc\hw_memmap.h
 .\output\pwm.o: .\Libraries\inc\hw_pwm.h

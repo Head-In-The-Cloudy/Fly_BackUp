@@ -1,7 +1,7 @@
 .\output\hibernate.o: Libraries\driverlib\hibernate.c
-.\output\hibernate.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\hibernate.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\hibernate.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\time.h
+.\output\hibernate.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\hibernate.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\hibernate.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\time.h
 .\output\hibernate.o: .\Libraries\inc\hw_hibernate.h
 .\output\hibernate.o: .\Libraries\inc\hw_ints.h
 .\output\hibernate.o: .\Libraries\inc\hw_sysctl.h

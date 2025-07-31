@@ -1,11 +1,11 @@
 .\output\gps.o: WP_Src\GPS.c
 .\output\gps.o: .\User\Headfile.h
-.\output\gps.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\gps.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\gps.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\gps.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\gps.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\gps.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\gps.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\gps.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\gps.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\gps.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\gps.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\gps.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\gps.o: .\Libraries\inc\hw_memmap.h
 .\output\gps.o: .\Libraries\inc\hw_types.h
 .\output\gps.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\gps.o: .\WP_Src\Ringbuf.h
 .\output\gps.o: .\WP_Src\NCLink.h
 .\output\gps.o: .\Libraries\utils\uartstdio.h
-.\output\gps.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\gps.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\gps.o: .\WP_Src\Time.h
 .\output\gps.o: .\WP_Src\Time_Cnt.h
 .\output\gps.o: .\WP_Src\Schedule.h

@@ -1,11 +1,11 @@
 .\output\compass.o: WP_Src\Compass.c
 .\output\compass.o: .\User\Headfile.h
-.\output\compass.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\compass.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\compass.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\compass.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\compass.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\compass.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\compass.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\compass.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\compass.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\compass.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\compass.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\compass.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\compass.o: .\Libraries\inc\hw_memmap.h
 .\output\compass.o: .\Libraries\inc\hw_types.h
 .\output\compass.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\compass.o: .\WP_Src\Ringbuf.h
 .\output\compass.o: .\WP_Src\NCLink.h
 .\output\compass.o: .\Libraries\utils\uartstdio.h
-.\output\compass.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\compass.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\compass.o: .\WP_Src\Time.h
 .\output\compass.o: .\WP_Src\Time_Cnt.h
 .\output\compass.o: .\WP_Src\Schedule.h

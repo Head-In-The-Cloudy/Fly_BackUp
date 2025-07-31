@@ -73,7 +73,7 @@ int main(void)
 		Horizontal_Calibration_Check();		//机架水平校准检测
 		Save_Or_Reset_PID_Parameter();		//运用地面站，修改控制参数
 	    USART2_Send(&temp,1);
-
+		GroundStation_Begin_MAP();
   }
 }
 

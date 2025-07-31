@@ -1,11 +1,11 @@
 .\output\time_cnt.o: WP_Src\Time_Cnt.c
 .\output\time_cnt.o: .\User\Headfile.h
-.\output\time_cnt.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\time_cnt.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\time_cnt.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\time_cnt.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\time_cnt.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\time_cnt.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\time_cnt.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\time_cnt.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\time_cnt.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\time_cnt.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\time_cnt.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\time_cnt.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\time_cnt.o: .\Libraries\inc\hw_memmap.h
 .\output\time_cnt.o: .\Libraries\inc\hw_types.h
 .\output\time_cnt.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\time_cnt.o: .\WP_Src\Ringbuf.h
 .\output\time_cnt.o: .\WP_Src\NCLink.h
 .\output\time_cnt.o: .\Libraries\utils\uartstdio.h
-.\output\time_cnt.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\time_cnt.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\time_cnt.o: .\WP_Src\Time.h
 .\output\time_cnt.o: .\WP_Src\Time_Cnt.h
 .\output\time_cnt.o: .\WP_Src\Schedule.h

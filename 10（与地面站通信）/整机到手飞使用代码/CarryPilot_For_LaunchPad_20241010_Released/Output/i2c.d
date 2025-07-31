@@ -1,6 +1,6 @@
 .\output\i2c.o: Libraries\driverlib\i2c.c
-.\output\i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\output\i2c.o: .\Libraries\inc\hw_i2c.h
 .\output\i2c.o: .\Libraries\inc\hw_ints.h
 .\output\i2c.o: .\Libraries\inc\hw_memmap.h

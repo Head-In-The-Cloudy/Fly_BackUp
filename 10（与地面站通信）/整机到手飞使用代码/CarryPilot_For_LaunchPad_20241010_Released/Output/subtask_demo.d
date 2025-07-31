@@ -1,11 +1,11 @@
 .\output\subtask_demo.o: WP_Ctrl\Subtask_Demo.c
 .\output\subtask_demo.o: .\User\Headfile.h
-.\output\subtask_demo.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\subtask_demo.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\subtask_demo.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\subtask_demo.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\subtask_demo.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\subtask_demo.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\subtask_demo.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\subtask_demo.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\subtask_demo.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\subtask_demo.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\subtask_demo.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\subtask_demo.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\subtask_demo.o: .\Libraries\inc\hw_memmap.h
 .\output\subtask_demo.o: .\Libraries\inc\hw_types.h
 .\output\subtask_demo.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\subtask_demo.o: .\WP_Src\Ringbuf.h
 .\output\subtask_demo.o: .\WP_Src\NCLink.h
 .\output\subtask_demo.o: .\Libraries\utils\uartstdio.h
-.\output\subtask_demo.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\subtask_demo.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\subtask_demo.o: .\WP_Src\Time.h
 .\output\subtask_demo.o: .\WP_Src\Time_Cnt.h
 .\output\subtask_demo.o: .\WP_Src\Schedule.h

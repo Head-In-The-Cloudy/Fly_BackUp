@@ -1,6 +1,6 @@
 .\output\shamd5.o: Libraries\driverlib\shamd5.c
-.\output\shamd5.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\shamd5.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\shamd5.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\shamd5.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\output\shamd5.o: .\Libraries\inc\hw_ints.h
 .\output\shamd5.o: .\Libraries\inc\hw_memmap.h
 .\output\shamd5.o: .\Libraries\inc\hw_nvic.h

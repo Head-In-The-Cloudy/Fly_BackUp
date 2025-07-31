@@ -1,11 +1,11 @@
 .\output\sensor.o: WP_Ctrl\Sensor.c
 .\output\sensor.o: .\User\Headfile.h
-.\output\sensor.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\sensor.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\sensor.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\sensor.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\sensor.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\sensor.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\sensor.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\sensor.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\sensor.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\sensor.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\sensor.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\sensor.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\sensor.o: .\Libraries\inc\hw_memmap.h
 .\output\sensor.o: .\Libraries\inc\hw_types.h
 .\output\sensor.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\sensor.o: .\WP_Src\Ringbuf.h
 .\output\sensor.o: .\WP_Src\NCLink.h
 .\output\sensor.o: .\Libraries\utils\uartstdio.h
-.\output\sensor.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\sensor.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\sensor.o: .\WP_Src\Time.h
 .\output\sensor.o: .\WP_Src\Time_Cnt.h
 .\output\sensor.o: .\WP_Src\Schedule.h

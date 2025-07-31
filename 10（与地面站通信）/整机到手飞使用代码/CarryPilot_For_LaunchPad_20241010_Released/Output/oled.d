@@ -1,11 +1,11 @@
 .\output\oled.o: WP_Src\OLED.c
 .\output\oled.o: .\User\Headfile.h
-.\output\oled.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\oled.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\oled.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\oled.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\oled.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\oled.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\oled.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\oled.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\oled.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\oled.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\oled.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\oled.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\oled.o: .\Libraries\inc\hw_memmap.h
 .\output\oled.o: .\Libraries\inc\hw_types.h
 .\output\oled.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\oled.o: .\WP_Src\Ringbuf.h
 .\output\oled.o: .\WP_Src\NCLink.h
 .\output\oled.o: .\Libraries\utils\uartstdio.h
-.\output\oled.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\oled.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\oled.o: .\WP_Src\Time.h
 .\output\oled.o: .\WP_Src\Time_Cnt.h
 .\output\oled.o: .\WP_Src\Schedule.h

@@ -1010,7 +1010,7 @@ void Openmv_Data_Receive_Anl_2(uint8_t *data_buf,uint8_t num,Target_Check *targe
 
 static uint8_t state[3] = {0};
 static uint8_t _data_len[2] = {0},_data_cnt[2] = {0};
-uint8_t _buf[2][SDK_Target_Length];
+uint8_t _buf[3][SDK_Target_Length];
 void SDK_Data_Receive_Prepare(uint8_t data,uint8_t label)
 {
   if(state[label]==0&&data==0xFF)//帧头1
@@ -1153,7 +1153,7 @@ GroundStation_To_TIVA_Target To_TIVA_Target;
 void SDK_DT_Send_To_GroundStation(uint8_t animal_type,uint8_t animal_num,vector2f Rigion)
 {
   sdk_data_to_send[0]=0xFF;
-  sdk_data_to_send[1]=0xFE;
+  sdk_data_to_send[1]=0xFC;
   sdk_data_to_send[2]=0xA0;
   sdk_data_to_send[3]=4;    // 发送给 地面站的 是固定的数据
   sdk_data_to_send[4]=animal_type;
@@ -1178,7 +1178,7 @@ void SDK_DT_Send_To_GroundStation(uint8_t animal_type,uint8_t animal_num,vector2
 //地面站数据解析  两边公用的部分
 void SDK_Data_Receive_Prepare_GroundStation(uint8_t data)
 {
-	uint8_t label=3;   //3是用来存放地点站消的 缓冲区
+	uint8_t label=2;   //3是用来存放地点站消的 缓冲区
   if(state[label]==0&&data==0xFF)//帧头1
   {
     state[label]=1;
@@ -1201,7 +1201,7 @@ void SDK_Data_Receive_Prepare_GroundStation(uint8_t data)
     _data_len[label] = data;
     _data_cnt[label] = 0;
   }
-  else if(state[label]==4&&_data_len>0)//有多少数据长度，就存多少个
+  else if(state[label]==4&&_data_len[label]>0)//有多少数据长度，就存多少个
   {
     _data_len[label]--;
     _buf[label][4+_data_cnt[label]++]=data;
@@ -1232,13 +1232,14 @@ void Data_Receive_GroundStation(uint8_t *data_buf,uint8_t num,GroundStation_To_T
   for(uint8_t i=0;i<(num-1);i++)  sum+=*(data_buf+i);
   if(!(sum==*(data_buf+num-1))) 	return;//不满足和校验条件
   	
-		target->Forbidden_Rigion_Num				  	=*(data_buf+4);
+	target->Forbidden_Rigion_Num				  	=*(data_buf+3);
     for(int tem=0;tem<target->Forbidden_Rigion_Num;tem++)
     {
-        target->Forbidden_Rigion[tem].A=*(data_buf+5+2*tem);
-        target->Forbidden_Rigion[tem].B=*(data_buf+5+2*tem+1);
-        target->Get_Forbidden_Rigion=1;
+        target->Forbidden_Rigion[tem].A=*(data_buf+4+2*tem);
+        target->Forbidden_Rigion[tem].B=*(data_buf+4+2*tem+1);
+        
     }
+	target->Get_Forbidden_Rigion=1;
 
 }
 
@@ -1251,16 +1252,16 @@ void GroundStation_Begin_MAP(void)  //主函数中会 一直调用他
         if(To_TIVA_Target.Get_Forbidden_Rigion==1)
         {
             To_TIVA_Target.Get_Forbidden_Rigion=0;
+			To_TIVA_Target.Forbidden_Rigion_Num/=2; //每一组数据是两个，所以要/2
             sta_cnt=1;  //说明收集到了 若干个Forbidden_Rigion 的 信息 
         }
         else return;
     }
     else if(sta_cnt==1)
     {
-        //这个状态下  持续建立航线      存进 全局变量  航线图
         sta_cnt=2; 
-        //这时候
-        //To_TIVA_Target->Forbidden_Rigion[].A 上面是有value的 
+
+
     }
     else 
     {

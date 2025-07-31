@@ -615,7 +615,7 @@ void us100_front_statemachine(void)
 ////////////////////////
 void Uart2_Serialport_Init(void)
 {
-	ConfigureUART2(115200/*19200*/);
+	ConfigureUART2(/*19200*/);
 }
 
 

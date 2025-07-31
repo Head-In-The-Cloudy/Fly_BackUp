@@ -1,6 +1,6 @@
 .\output\can.o: Libraries\driverlib\can.c
-.\output\can.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\can.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
+.\output\can.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\can.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
 .\output\can.o: .\Libraries\inc\hw_can.h
 .\output\can.o: .\Libraries\inc\hw_ints.h
 .\output\can.o: .\Libraries\inc\hw_nvic.h

@@ -1,11 +1,11 @@
 .\output\soft_i2c.o: WP_Src\Soft_I2C.c
 .\output\soft_i2c.o: .\User\Headfile.h
-.\output\soft_i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\soft_i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\soft_i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\soft_i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\soft_i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\soft_i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\soft_i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\soft_i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\soft_i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\soft_i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\soft_i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\soft_i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\soft_i2c.o: .\Libraries\inc\hw_memmap.h
 .\output\soft_i2c.o: .\Libraries\inc\hw_types.h
 .\output\soft_i2c.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\soft_i2c.o: .\WP_Src\Ringbuf.h
 .\output\soft_i2c.o: .\WP_Src\NCLink.h
 .\output\soft_i2c.o: .\Libraries\utils\uartstdio.h
-.\output\soft_i2c.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\soft_i2c.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\soft_i2c.o: .\WP_Src\Time.h
 .\output\soft_i2c.o: .\WP_Src\Time_Cnt.h
 .\output\soft_i2c.o: .\WP_Src\Schedule.h

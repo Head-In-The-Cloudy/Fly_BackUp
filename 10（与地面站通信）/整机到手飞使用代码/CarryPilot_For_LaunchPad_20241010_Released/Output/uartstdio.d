@@ -1,7 +1,7 @@
 .\output\uartstdio.o: Libraries\utils\uartstdio.c
-.\output\uartstdio.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\uartstdio.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\uartstdio.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\uartstdio.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\uartstdio.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\uartstdio.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\uartstdio.o: .\Libraries\inc\hw_ints.h
 .\output\uartstdio.o: .\Libraries\inc\hw_memmap.h
 .\output\uartstdio.o: .\Libraries\inc\hw_types.h

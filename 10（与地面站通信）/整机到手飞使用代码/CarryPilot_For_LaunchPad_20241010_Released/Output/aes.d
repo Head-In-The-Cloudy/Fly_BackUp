@@ -1,6 +1,6 @@
 .\output\aes.o: Libraries\driverlib\aes.c
-.\output\aes.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\aes.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
+.\output\aes.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\aes.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
 .\output\aes.o: .\Libraries\inc\hw_aes.h
 .\output\aes.o: .\Libraries\inc\hw_ccm.h
 .\output\aes.o: .\Libraries\inc\hw_ints.h

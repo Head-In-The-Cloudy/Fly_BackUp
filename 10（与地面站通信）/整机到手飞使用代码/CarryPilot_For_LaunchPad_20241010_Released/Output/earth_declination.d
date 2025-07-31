@@ -1,11 +1,11 @@
 .\output\earth_declination.o: WP_Ctrl\Earth_Declination.c
 .\output\earth_declination.o: .\User\Headfile.h
-.\output\earth_declination.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\earth_declination.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\earth_declination.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\earth_declination.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\earth_declination.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\earth_declination.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\earth_declination.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\earth_declination.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\earth_declination.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\earth_declination.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\earth_declination.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\earth_declination.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\earth_declination.o: .\Libraries\inc\hw_memmap.h
 .\output\earth_declination.o: .\Libraries\inc\hw_types.h
 .\output\earth_declination.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\earth_declination.o: .\WP_Src\Ringbuf.h
 .\output\earth_declination.o: .\WP_Src\NCLink.h
 .\output\earth_declination.o: .\Libraries\utils\uartstdio.h
-.\output\earth_declination.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\earth_declination.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\earth_declination.o: .\WP_Src\Time.h
 .\output\earth_declination.o: .\WP_Src\Time_Cnt.h
 .\output\earth_declination.o: .\WP_Src\Schedule.h

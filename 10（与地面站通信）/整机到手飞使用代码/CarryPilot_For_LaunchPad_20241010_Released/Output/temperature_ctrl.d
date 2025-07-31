@@ -1,11 +1,11 @@
 .\output\temperature_ctrl.o: WP_Ctrl\Temperature_Ctrl.c
 .\output\temperature_ctrl.o: .\User\Headfile.h
-.\output\temperature_ctrl.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\temperature_ctrl.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\temperature_ctrl.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\temperature_ctrl.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\temperature_ctrl.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\temperature_ctrl.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\temperature_ctrl.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\temperature_ctrl.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\temperature_ctrl.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\temperature_ctrl.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\temperature_ctrl.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\temperature_ctrl.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\temperature_ctrl.o: .\Libraries\inc\hw_memmap.h
 .\output\temperature_ctrl.o: .\Libraries\inc\hw_types.h
 .\output\temperature_ctrl.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\temperature_ctrl.o: .\WP_Src\Ringbuf.h
 .\output\temperature_ctrl.o: .\WP_Src\NCLink.h
 .\output\temperature_ctrl.o: .\Libraries\utils\uartstdio.h
-.\output\temperature_ctrl.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\temperature_ctrl.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\temperature_ctrl.o: .\WP_Src\Time.h
 .\output\temperature_ctrl.o: .\WP_Src\Time_Cnt.h
 .\output\temperature_ctrl.o: .\WP_Src\Schedule.h

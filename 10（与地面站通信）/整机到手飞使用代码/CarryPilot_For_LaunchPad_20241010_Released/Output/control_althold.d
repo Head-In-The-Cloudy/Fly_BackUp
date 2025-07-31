@@ -1,11 +1,11 @@
 .\output\control_althold.o: WP_Ctrl\control_althold.c
 .\output\control_althold.o: .\User\Headfile.h
-.\output\control_althold.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\control_althold.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\control_althold.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\control_althold.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\control_althold.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\control_althold.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\control_althold.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\control_althold.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\control_althold.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\control_althold.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\control_althold.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\control_althold.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\control_althold.o: .\Libraries\inc\hw_memmap.h
 .\output\control_althold.o: .\Libraries\inc\hw_types.h
 .\output\control_althold.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\control_althold.o: .\WP_Src\Ringbuf.h
 .\output\control_althold.o: .\WP_Src\NCLink.h
 .\output\control_althold.o: .\Libraries\utils\uartstdio.h
-.\output\control_althold.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\control_althold.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\control_althold.o: .\WP_Src\Time.h
 .\output\control_althold.o: .\WP_Src\Time_Cnt.h
 .\output\control_althold.o: .\WP_Src\Schedule.h

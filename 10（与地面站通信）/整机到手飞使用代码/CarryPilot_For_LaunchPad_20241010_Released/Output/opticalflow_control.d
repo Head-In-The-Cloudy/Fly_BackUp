@@ -1,11 +1,11 @@
 .\output\opticalflow_control.o: WP_Ctrl\OpticalFlow_Control.c
 .\output\opticalflow_control.o: .\User\Headfile.h
-.\output\opticalflow_control.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdio.h
-.\output\opticalflow_control.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdlib.h
-.\output\opticalflow_control.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\string.h
-.\output\opticalflow_control.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdint.h
-.\output\opticalflow_control.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdbool.h
-.\output\opticalflow_control.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\math.h
+.\output\opticalflow_control.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\opticalflow_control.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\opticalflow_control.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\output\opticalflow_control.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\opticalflow_control.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\opticalflow_control.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\math.h
 .\output\opticalflow_control.o: .\Libraries\inc\hw_memmap.h
 .\output\opticalflow_control.o: .\Libraries\inc\hw_types.h
 .\output\opticalflow_control.o: .\Libraries\inc\hw_ints.h
@@ -27,7 +27,7 @@
 .\output\opticalflow_control.o: .\WP_Src\Ringbuf.h
 .\output\opticalflow_control.o: .\WP_Src\NCLink.h
 .\output\opticalflow_control.o: .\Libraries\utils\uartstdio.h
-.\output\opticalflow_control.o: E:\STM32\keil\ARM\Compiler_V_5_06\Bin\..\include\stdarg.h
+.\output\opticalflow_control.o: E:\Embedded_System\Environment\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
 .\output\opticalflow_control.o: .\WP_Src\Time.h
 .\output\opticalflow_control.o: .\WP_Src\Time_Cnt.h
 .\output\opticalflow_control.o: .\WP_Src\Schedule.h
