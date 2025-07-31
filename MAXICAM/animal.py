@@ -32,13 +32,17 @@ state1:[Receive]
 state2:[Send]
     target.reserved3 = 飞行方向(上1,右2,下3,左4,5结束)
     if 找到新格点，进行检测并检测到动物
-        target.reserved4 = 检测到的动物(孔雀1,大象2,,狼3,猴子4,老虎5,没检测到默认置0)
+        target.reserved4 = 孔雀数量
+        reserved1_u32 = 大象数量
+        reserved2_u32 = 狼数量
+        reserved3_u32 = 猴子数量
+        reserved4_u32 = 老虎数量
 state3:[Receive]
     buf[4] = mode(0x02)
     if:buf[5] = 1(OK)
         jump state2     
 '''
-from maix import uart,camera, display, image,time
+from maix import uart,camera, display, image,time,nn,app
 import math
 import numpy as np
 import time
@@ -54,6 +58,10 @@ devices=uart.list_devices()
 myuart = uart.UART(devices[0],115200)
 myuart.open()
 IMAGE_DIS_MAX=(int)(math.sqrt(IMAGE_WIDTH*IMAGE_WIDTH+IMAGE_HEIGHT*IMAGE_HEIGHT)/2)
+
+#detector = nn.YOLOv5(model="/root/models/yolov5s.mud", dual_buff=True)
+detector = nn.YOLOv5(model="/root/models/maixhub/229475/model_229475.mud", dual_buff = True)
+disp = display.Display()
 
 ROWS, COLS = 7, 9
 START = (6, 8)  # 从(7,9)开始
@@ -182,12 +190,64 @@ class Camus_Way:
         target.reserved3 = 5
         target.state = 0
         while target.state != 1 and ctr.work_mode == 2:
-            yield  # 等待主控回应
+            yield  
 
 
-# 替代实际飞控检测函数
 def detect_function(x, y):
+    global disp
     print(f"Detect @ ({x+1},{y+1})")
+
+    animal_labels = ['bird', 'elephant', 'wolf', 'monkey', 'tiger']
+
+    # 储存5次拍照
+    animal_counts_series = {
+        'bird': [],
+        'elephant': [],
+        'wolf': [],
+        'monkey': [],
+        'tiger': []
+    }
+
+    # 拍照5次并统计每类动物的数量
+    for i in range(5):
+        img = cam.read()
+        objs = detector.detect(img, conf_th=0.5, iou_th=0.45)
+        print(f"Round {i+1}: {len(objs)} objects detected")
+
+        # 每次拍照统计当前图像中各动物数量
+        round_counts = {label: 0 for label in animal_labels}
+
+        for obj in objs:
+            label = detector.labels[obj.class_id]
+            if label in animal_labels:
+                round_counts[label] += 1
+                print(f"Detected {label} @ ({obj.x},{obj.y}) Score: {obj.score:.2f}")
+                if ctr.check_show == 1:
+                    img.draw_rect(obj.x, obj.y, obj.w, obj.h, color=image.COLOR_RED)
+                    msg = f'{label}: {obj.score:.2f}'
+                    img.draw_string(obj.x, obj.y, msg, color=image.COLOR_RED)
+
+        for label in animal_labels:
+            animal_counts_series[label].append(round_counts[label])
+
+        if ctr.check_show == 1:
+            disp.show(img)
+
+    from collections import Counter
+
+    final_counts = {}
+    for label in animal_labels:
+        count_list = animal_counts_series[label]
+        most_common = Counter(count_list).most_common(1)[0][0]  # 频率最高的数量
+        final_counts[label] = most_common
+        print(f"Final {label} count (most frequent): {most_common}")
+
+    target.reserved4       = final_counts['bird']
+    target.reserved1_u32   = final_counts['elephant']
+    target.reserved2_u32   = final_counts['wolf']
+    target.reserved3_u32   = final_counts['monkey']
+    target.reserved4_u32   = final_counts['tiger']
+
 
 class target_check(object):
     x=0          #int16_t
