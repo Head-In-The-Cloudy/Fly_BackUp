@@ -13,10 +13,9 @@
 ║  ├─┤││││ │└─┐
 ╚═╝┴ ┴┴ ┴└─┘└─┘
 '''
-from maix import uart,camera, display, image,time
+from maix import uart,camera, display, image,time,nn, app
 import math
 import numpy as np
-import time
 from collections import deque
 
 IMAGE_WIDTH=640
@@ -34,6 +33,9 @@ ROWS, COLS = 7, 9
 START = (6, 8)  # 从(7,9)开始
 DIRS = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # 上 下 左 右
 DIRECTION_CODE = {(-1, 0): 1, (0, 1): 2, (1, 0): 3, (0, -1): 4}
+
+detector = nn.YOLOv5(model="/root/models/maixhub/229475/model_229475.mud", dual_buff = True)
+
 
 class Camus_Map:
     def __init__(self):

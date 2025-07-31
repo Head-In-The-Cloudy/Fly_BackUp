@@ -5,4 +5,4 @@ author: Camus
 icon: ''
 desc: test喵test喵test喵test喵test喵test喵
 files:
-  - yolov5.py
+  - modeltest.py
