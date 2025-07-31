@@ -15,7 +15,7 @@
 '''
 '''
 工作流程：
-Maping:
+Maping mode 0x01:
 state1:[Receive]
     buf[4] = mode(0x01)
     buf[4+i],buf[4+i+1] = (x行,y列)
@@ -26,7 +26,7 @@ state3:[Receive]
     if:buf[5] = 1(OK)
         jump state2
 
-Waying:
+Waying mode 0x02:
 state1:[Receive]
     buf[4] = mode
 state2:[Send]
@@ -167,12 +167,16 @@ class Camus_Map:
             
             if ctr.work_mode != 1:
                 break
+        target.reserved1 = 0
+        target.reserved2 = 0
 
 class Camus_Way:
     def __init__(self, path):
         self.path = path
         self.detected = set()
         self.animal_positions = []
+        self.coord_queue = []  # 存储需要发送的动物坐标
+        self.coord_index = -1  # -1 表示未开始发送
 
     def run(self):
         global uart_flag
@@ -180,8 +184,31 @@ class Camus_Way:
         for i in range(len(self.path)):
             pt = self.path[i]
             if pt not in self.detected:
-                detect_function(pt[0], pt[1])
+                coords = detect_function(pt[0], pt[1])
+                self.coord_queue = coords  # [(x, y), (x, y), ...]
+                self.coord_index = 0  
                 self.detected.add(pt)
+
+            while self.coord_index >= 0 and self.coord_index < len(self.coord_queue):
+                fx, fy = self.coord_queue[self.coord_index]
+                if fx == 0 and fy == 0:
+                    self.coord_index += 1
+                    continue  # 坐标为0跳过
+
+                target.x = fx
+                target.y = fy
+                target.state = 0
+                print(f"[SEND] Animal {self.coord_index}: ({fx},{fy})")
+                uart_flag = 1
+                while target.state != 1 and ctr.work_mode == 2:
+                    yield  # 等待飞控确认
+
+                print(f"[ACK] Animal {self.coord_index} confirmed.")
+                self.coord_index += 1
+
+            self.coord_index = -1  # 发送完毕
+            self.coord_queue = []
+
             if i > 0:
                 prev = self.path[i - 1]
                 dx = pt[0] - prev[0]
@@ -194,16 +221,15 @@ class Camus_Way:
                 uart_flag = 1
                 while target.state != 1 and ctr.work_mode == 2:
                     yield
-
+            
         target.reserved3 = 5
         target.state = 0
         while target.state != 1 and ctr.work_mode == 2:
             yield  
 
-
+'''
 def detect_function(x, y):
-    global disp
-    print(f"Detect @ ({x+1},{y+1})")
+    print(f"Detect ({x+1},{y+1})")
 
     animal_labels = ['bird', 'elephant', 'wolf', 'monkey', 'tiger']
 
@@ -282,6 +308,61 @@ def detect_function(x, y):
     target.reserved2_u32   = 0
     target.reserved3_u32   = 0
     target.reserved4_u32   = 0
+'''
+def detect_function(x, y):
+    print(f"Detect ({x+1},{y+1})")
+
+    animal_labels = ['bird', 'elephant', 'wolf', 'monkey', 'tiger']
+    animal_coords_series = {label: [] for label in animal_labels}
+    animal_counts_series = {label: [] for label in animal_labels}
+
+    for i in range(5):
+        img = cam.read()
+        objs = detector.detect(img, conf_th=0.5, iou_th=0.45)
+        print(f"Round {i+1}: {len(objs)} objects detected")
+
+        round_counts = {label: 0 for label in animal_labels}
+        round_coords = {label: [] for label in animal_labels}
+
+        for obj in objs:
+            label = detector.labels[obj.class_id]
+            if label in animal_labels:
+                round_counts[label] += 1
+                round_coords[label].append((obj.x, obj.y))
+                print(f"Detected {label} @ ({obj.x},{obj.y}) Score: {obj.score:.2f}")
+                if ctr.check_show == 1:
+                    img.draw_rect(obj.x, obj.y, obj.w, obj.h, color=image.COLOR_RED)
+                    msg = f'{label}: {obj.score:.2f}'
+                    img.draw_string(obj.x, obj.y, msg, color=image.COLOR_RED)
+
+        for label in animal_labels:
+            animal_counts_series[label].append(round_counts[label])
+            animal_coords_series[label].extend(round_coords[label])
+
+        if ctr.check_show == 1:
+            disp.show(img)
+
+    from collections import Counter
+    final_find = []
+
+    for label in animal_labels:
+        count_list = animal_counts_series[label]
+        most_common = Counter(count_list).most_common(1)[0][0]
+        print(f"Final {label} count (most frequent): {most_common}")
+        if most_common == 0:
+            print("[INFO]No Animal")
+            return []
+        coords = animal_coords_series[label]
+        if len(coords) < most_common:
+            avg_x, avg_y = 0, 0
+        else:
+            selected = coords[:most_common]
+            avg_x = int(sum(p[0] for p in selected) / most_common)
+            avg_y = int(sum(p[1] for p in selected) / most_common)
+        final_find.append((avg_x, avg_y))
+        print(f"{label}: ({avg_x},{avg_y})")
+
+    return final_find
 
 
 class target_check(object):
@@ -321,8 +402,7 @@ class mode_ctrl(object):
     check_show = 1   #开显示，在线调试时可以打开，离线使用请关闭，可提高计算速度
 
 ctr=mode_ctrl()
-if ctr.check_show==1:
-    dis=display.Display()
+
 R=uart_buf_prase()
 target=target_check()
 target.camera_id=0x01
@@ -457,7 +537,7 @@ def Run_Camus_Way():
     camus_way.run()
 
 path_planned = False
-uart_flag = 1
+uart_flag = 0
 ctr.work_mode=0x00
 Map_buf = []
 print("[INFO]Waiting...")
