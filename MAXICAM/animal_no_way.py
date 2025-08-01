@@ -88,6 +88,7 @@ class Camus_Map:
             x = buf[5 + 2 * i] - 1
             y = buf[6 + 2 * i] - 1
             self.no_fly.add((x, y))
+        print(self.no_fly)
 
     def bfs_path(self, start, end):
         visited = [[False] * COLS for _ in range(ROWS)]
@@ -169,6 +170,7 @@ class Camus_Map:
                 break
         target.reserved1 = 0
         target.reserved2 = 0
+        
 
 class Camus_Way:
     def __init__(self, path):
