@@ -82,12 +82,16 @@ class Camus_Map:
         self.path = []
 
     def receive_no_fly(self, buf):
-        count = buf[3] // 2 - 1
+        count = int(( buf[3] -1 )/ 2 )
         self.no_fly = set()
         for i in range(count):
             x = buf[5 + 2 * i] - 1
             y = buf[6 + 2 * i] - 1
             self.no_fly.add((x, y))
+        print(self.no_fly)
+        #print(count)
+        #print(buf)
+        
 
     def bfs_path(self, start, end):
         visited = [[False] * COLS for _ in range(ROWS)]
