@@ -212,7 +212,7 @@ class Camus_Way:
 
             self.coord_index = -1  # 发送完毕
             self.coord_queue = []
-
+        '''
             if i > 0:
                 prev = self.path[i - 1]
                 dx = pt[0] - prev[0]
@@ -230,13 +230,18 @@ class Camus_Way:
         target.state = 0
         while target.state != 1 and ctr.work_mode == 2:
             yield  
-
+        '''
 def detect_function(x, y):
     print(f"Detect ({x+1},{y+1})")
 
     animal_labels = ['bird', 'elephant', 'wolf', 'monkey', 'tiger']
     animal_coords_series = {label: [] for label in animal_labels}
     animal_counts_series = {label: [] for label in animal_labels}
+
+    ROI_WIDTH = 500   # New_ROI宽度 原640
+    ROI_HEIGHT = 400  # New_ROI高度 原480
+    roi_x = (IMAGE_WIDTH - ROI_WIDTH) // 2  # 水平居中
+    roi_y = (IMAGE_HEIGHT - ROI_HEIGHT) // 2  # 垂直居中
 
     for i in range(5):
         img = cam.read()
@@ -249,7 +254,13 @@ def detect_function(x, y):
 
         for obj in objs:
             label = detector.labels[obj.class_id].strip()
-            #print("Raw label:", detector.labels[obj.class_id])
+            obj_center_x = obj.x + obj.w // 2
+            obj_center_y = obj.y + obj.h // 2
+            
+            if not (roi_x <= obj_center_x <= roi_x + ROI_WIDTH and 
+                    roi_y <= obj_center_y <= roi_y + ROI_HEIGHT):
+                print(f"Filtered {label} @ ({obj.x},{obj.y}) - outside ROI")
+                continue
             if label in animal_labels:
                 round_counts[label] += 1
                 round_coords[label].append((obj.x, obj.y))

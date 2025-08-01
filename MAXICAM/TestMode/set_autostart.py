@@ -45,8 +45,8 @@ def set_autostart_app(app_id):
     os.sync()
 
 if __name__ == "__main__":
-    new_autostart_app_id = "settings"   # change to app_id you want to set
-    #new_autostart_app_id = "camusyolov5test"           # remove autostart
+    #new_autostart_app_id = "settings"   # change to app_id you want to set
+    new_autostart_app_id = "camus_animal"           # remove autostart
 
     list_apps()
     print("Before set autostart appid:", get_curr_autostart_app())
