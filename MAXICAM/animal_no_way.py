@@ -208,7 +208,7 @@ class Camus_Way:
 
             self.coord_index = -1  # 发送完毕
             self.coord_queue = []
-
+        '''
             if i > 0:
                 prev = self.path[i - 1]
                 dx = pt[0] - prev[0]
@@ -226,7 +226,7 @@ class Camus_Way:
         target.state = 0
         while target.state != 1 and ctr.work_mode == 2:
             yield  
-
+        '''
 def detect_function(x, y):
     print(f"Detect ({x+1},{y+1})")
 
