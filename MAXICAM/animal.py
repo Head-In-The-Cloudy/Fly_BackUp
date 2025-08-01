@@ -13,6 +13,18 @@
 ║  ├─┤││││ │└─┐
 ╚═╝┴ ┴┴ ┴└─┘└─┘
 '''
+
+'''
+路线规划算法优化
+
+蛇形路线+BFS -> 回形路线+DFS
+
+7x9的地图，起点为(7,9)(第七行，第九列)
+接收若干个相连的禁飞点，对应格点不能经过
+从(7,9)按照回形路线如(7,9)->(1,9)->(1,1)->(7,1)->(7,8)->(2,8)
+如此直到将除了禁飞点的每一个格点遍历
+'''
+
 '''
 工作流程：
 Maping mode 0x01:
@@ -147,11 +159,11 @@ class Camus_Map:
 
     def plan_and_send(self):
         global uart_flag
-        targets = self.generate_snake_targets()
+        targets = self.generate_snake_targets()#更改
         current = START
         full_path = []
         for tgt in targets:
-            path = self.bfs_path(current, tgt)
+            path = self.bfs_path(current, tgt)#更改
             if not path:
                 continue
             if full_path and full_path[-1] == path[0]:
