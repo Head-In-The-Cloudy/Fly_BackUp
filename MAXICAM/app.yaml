@@ -1,0 +1,8 @@
+id: camus_animal
+name: Camus_Animal
+version: 1.2.2
+author: YM_Camus
+icon: ''
+desc: 2025电赛H题
+files:
+  - animal.py

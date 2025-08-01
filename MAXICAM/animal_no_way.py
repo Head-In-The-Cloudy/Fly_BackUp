@@ -182,6 +182,8 @@ class Camus_Way:
 
     def run(self):
         global uart_flag
+        target.x = 0
+        target.y = 0
         print(len(self.path))
         for i in range(len(self.path)):
             pt = self.path[i]
