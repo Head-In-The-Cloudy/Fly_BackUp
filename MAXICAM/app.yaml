@@ -1,8 +1,8 @@
 id: camus_animal
 name: Camus_Animal
-version: 2.3.2
+version: 2.3.3
 author: YM_Camus
 icon: ''
-desc: 2025电赛H题
+desc: 2025电赛H题，不想改了
 files:
   - animal_new_function.py

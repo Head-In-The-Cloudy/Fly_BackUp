@@ -240,7 +240,6 @@ class Camus_Map:
     def plan_and_send(self):
         global uart_flag, ctr, target
         spiral_path = self.generate_spiral_path((6, 8))
-        self.path = spiral_path
         if not spiral_path:
             print("cant find path")
             return
@@ -261,8 +260,6 @@ class Camus_Map:
 # 全局常量
 ROWS, COLS = 7, 9
 START = (6, 8)  # 0-based起点坐标
-
-'''
 class Camus_Way:
     def __init__(self, path):
         self.path = path
@@ -274,7 +271,6 @@ class Camus_Way:
     def run(self):
         global uart_flag
         print(len(self.path))
-        uart_flag = 1
         for i in range(len(self.path)):
             pt = self.path[i]
             if pt not in self.detected:
@@ -293,62 +289,34 @@ class Camus_Way:
                 target.y = fy
                 target.state = 0
                 print(f"[SEND] Animal {self.coord_index}: ({fx},{fy})")
-                #uart_flag = 1
+                uart_flag = 1
                 while target.state != 1 and ctr.work_mode == 2:
                     yield  # 等待飞控确认
 
                 print(f"[ACK] Animal {self.coord_index} confirmed.")
                 self.coord_index += 1
-            target.reserved1_u32=0
-            target.reserved2_u32=0
-            target.reserved3_u32=0
-            target.reserved4_u32=0
-            target.reserved4 = 0
+
             self.coord_index = -1  # 发送完毕
             self.coord_queue = []
-
-        target.state = 0
-        while target.state != 1 and ctr.work_mode == 2:
-            yield  # 等待飞控确认
-        print("[INFO] END ONCE.")
-        ctr.work_mode = 0x00
-'''
-class Camus_Way:
-    def __init__(self, path):
-        self.path = path
-        self.detected = set()
-
-    def run(self):
-        global uart_flag
-        print(len(self.path))
-        uart_flag = 1
-        
-        for pt in self.path:
-            if pt not in self.detected:
-                detect_function(pt[0], pt[1])  # 在函数中更新各类数量到 target.reserved*
-
-                # 你可以打印本格点的识别情况供调试
-                print(f"[DETECT] Grid {pt}:")
-                print(f"    elephant: {target.reserved1_u32}")
-                print(f"    wolf    : {target.reserved2_u32}")
-                print(f"    monkey  : {target.reserved3_u32}")
-                print(f"    tiger   : {target.reserved4_u32}")
-                print(f"    bird    : {target.reserved4}")  # 假设用 reserved4 表示第五类
-
-                self.detected.add(pt)
-
-                # 向飞控发送数据（其实就是飞控读取 target 的这些字段）
+        '''
+            if i > 0:
+                prev = self.path[i - 1]
+                dx = pt[0] - prev[0]
+                dy = pt[1] - prev[1]
+                code = DIRECTION_CODE.get((dx, dy), 5)
+                target.reserved3 = code
+                print(target.reserved3)
+                #1向前 2向右 3向下 4向左
                 target.state = 0
                 uart_flag = 1
                 while target.state != 1 and ctr.work_mode == 2:
-                    yield  # 等待飞控应答
-                print(f"[ACK] Grid {pt} confirmed by flight controller.")
-
-        # 所有格点识别完成
-        print("[INFO] Path traversal complete.")
-        ctr.work_mode = 0x00
-
-
+                    yield
+            
+        target.reserved3 = 5
+        target.state = 0
+        while target.state != 1 and ctr.work_mode == 2:
+            yield  
+        '''
 def detect_function(x, y):
     print(f"Detect ({x+1},{y+1})")
 
@@ -440,16 +408,6 @@ def detect_function(x, y):
         if count_list:  # 确保列表不为空
             most_common = Counter(count_list).most_common(1)[0][0]
             print(f"Final {label} count (most frequent): {most_common}")
-            if label == 'bird':
-                target.reserved4 = most_common
-            elif label == 'elephant':
-                target.reserved1_u32 = most_common
-            elif label == 'wolf':
-                target.reserved2_u32 = most_common
-            elif label == 'monkey':
-                target.reserved3_u32 = most_common
-            elif label == 'tiger':
-                target.reserved4_u32 = most_common
             if most_common == 0:
                 continue
             coords = animal_coords_series[label]
@@ -465,7 +423,7 @@ def detect_function(x, y):
         else:
             print(f"Final {label} count: 0")
 
-    return None
+    return final_find
 
 
 class target_check(object):
@@ -509,11 +467,10 @@ ctr=mode_ctrl()
 R=uart_buf_prase()
 target=target_check()
 target.camera_id=0x01
-target.reserved1_u32=0
-target.reserved2_u32=0
-target.reserved3_u32=0
-target.reserved4_u32=0
-target.reserved4 = 0
+target.reserved1_u32=65536
+target.reserved2_u32=105536
+target.reserved3_u32=65537
+target.reserved4_u32=105537
 HEADER=[0xFF,0xFC]
 MODE=[0xF1,0xF2,0xF3]
 #__________________________________________________________________
@@ -636,8 +593,8 @@ def Handle_Camus_Map(buf):
     planner = camus_map.plan_and_send()
     #camus_map.plan_and_send()
     #camus_way = Camus_Way(camus_map.path)
+    
 def Run_Camus_Way():
-    global camus_way
     camus_way.run()
 
 path_planned = False
@@ -667,13 +624,13 @@ while True:
         uart_flag = 0
         if camus_runner is None:
             camus_runner = camus_way.run()
-            #Run_Camus_Way()
+            Run_Camus_Way()
         try:
             next(camus_runner)
         except StopIteration:
             print("[INFO] Navigation Finished.")
             camus_runner = None
-
+        #Run_Camus_Way()
     elif ctr.work_mode==0x03:
         img=cam.read()
 
